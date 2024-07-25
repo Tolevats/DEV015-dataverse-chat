@@ -1,34 +1,76 @@
-import { Footer } from "../Componentss/Footer.js";
-import { navigateTo } from "../router.js";
-import {Header} from "../Componentss/Header.js"
-//importación de la data
-//importar las trajetas
-//importar las funciones 
-//importar Footer
-//importar Header
+import { Footer } from "../components/footer.js";
+//import { navigateTo } from "../router.js";
+import { Header } from "../components/header.js";
+import data from "../data/dataset.js";
+import { filterData, sortData, computeStats } from "../lib/dataFunctions.js";
+import { main } from "../components/main.js";
+//import { renderItems } from "../components/cards.js";
 
-export function Principal() {
+export function Principal(props) {
   const viewEl = document.createElement('div');
   viewEl.setAttribute("class","view");
   //const main = document.createElement("main");
   //main.appendChild()
-  
-
-
-
-  const title = document.createElement('h1');
-  title.textContent = 'Hola Mundo';
-
-  const Button = document.createElement('button');
-  Button.textContent = 'Ir a Chat Grupal';
-  Button.addEventListener('click', () => {
-    navigateTo("/chatGrupal")//como esta en la guía para cada tarjeta
-  });
+  /* viewEl.innerHTML = `
+  `; */
 
   viewEl.appendChild(Header());
+  viewEl.appendChild(main());
 
-  viewEl.appendChild(title);
-  viewEl.appendChild(Button);
+  //const cards = document.createElement('cards');
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const rootElement = document.querySelector('#root');
+    const platformSelect = document.querySelector('#platform');
+    const sortBySelect = document.querySelector('#sortBy');
+    const buttonReset = document.querySelector('#buttonClear');
+    const buttonStats = document.querySelector('#buttonStats');
+
+
+    const originalData = [...data];
+
+    const renderFilteredData = () => {
+      const platform = platformSelect.value;
+      const sortByOption = sortBySelect.value.split('-');
+      const sortBy = sortByOption[0];
+      const sortOrder = sortByOption[1];
+
+      let filteredData = data;
+
+      if (platform) {
+        filteredData = filterData(filteredData, 'streamingPlatform', platform);
+      }
+
+      if (sortBy && sortOrder) {
+        filteredData = sortData(filteredData, sortBy, sortOrder);
+      }
+
+      rootElement.innerHTML = ''; 
+      rootElement.appendChild(renderItems(filteredData));
+    };
+
+    platformSelect.addEventListener('change', renderFilteredData);
+    sortBySelect.addEventListener('change', renderFilteredData);
+
+    buttonReset.addEventListener('click', () => {
+      sortBySelect.selectedIndex = 0; 
+      platformSelect.selectedIndex = 0;  
+      rootElement.innerHTML = '';       
+      rootElement.append(renderItems(originalData)); 
+    });
+  
+    buttonStats.addEventListener('click', () => {
+      const stats = computeStats(data);
+      
+      const resultsContainer = document.querySelector('#results');
+      resultsContainer.innerHTML = `
+        <h4><span class="highlight">${stats.avgYears.toFixed(2)} años</span> promedia una transmisión.</h4>
+         `;
+    });  
+
+    rootElement.appendChild(renderItems(data)); 
+  });
+  //  viewEl.appendChild(renderItems());
   viewEl.appendChild(Footer());
   return viewEl;
 }

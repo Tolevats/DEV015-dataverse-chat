@@ -1,5 +1,5 @@
 import { Principal } from './views/home.js'; 
-import { chatGrupal } from './views/chatGrupal.js';
+import { chatGrupal } from './views/groupChat.js';
 // ... import other views
 import { setRootEl, setRoutes, onURLChange } from './router.js';
 
