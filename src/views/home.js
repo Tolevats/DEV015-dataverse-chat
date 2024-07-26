@@ -1,6 +1,6 @@
 import { Footer } from "../Componentss/Footer.js";
 import { navigateTo } from "../router.js";
-import {Header} from "../Componentss/Header.js"
+import {Header} from "
 //importación de la data
 //importar las trajetas
 //importar las funciones 
@@ -24,8 +24,6 @@ export function Principal() {
   Button.addEventListener('click', () => {
     navigateTo("/chatGrupal")//como esta en la guía para cada tarjeta
   });
-
-  viewEl.appendChild(Header());
 
   viewEl.appendChild(title);
   viewEl.appendChild(Button);
