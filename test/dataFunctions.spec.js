@@ -1,7 +1,7 @@
 //considerar tener un archivo de prueba por cada archivo javascript que desees probar.
 
 import { filterData, sortData, computeStats } from '../src/lib/dataFunctions.js';
-import { data } from './dataFake.js'; //la ruta: /src/data/dataset.js NO pq sería todo
+import { data } from './src/data/dataset.js';
 
 describe('filterData', () => {
   it('se filtra data por streamingPlatform', () => {

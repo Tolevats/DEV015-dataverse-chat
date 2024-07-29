@@ -18,8 +18,8 @@ const queryStringToObject = (queryString) => { //CPONVIERTE UNA CADENA DE BUSQUE
 
 const renderView = (pathName, props = {}) => {//FUNCIONA EN ROUTES LALMA A LA FUNCION PASANDO POPS Y AGREGA EL ELEMENTO AL DOM EN ROOT
   //let template;
-  const root =  rootEl
-  root.innerHTML = "";
+  //const root =  rootEl
+  //root.innerHTML = "";
   rootEl.innerHTML = "";   // clear the root element
   // if (ROUTES [pathName])  {template = ROUTES [pathName];
   //} else {
