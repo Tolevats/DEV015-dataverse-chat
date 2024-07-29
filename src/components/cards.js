@@ -1,5 +1,5 @@
 import data from "../data/dataset.js";
-import { filterData, sortData, computeStats } from "../lib/dataFunctions";
+import { filterData, sortData, computeStats } from "../lib/dataFunctions.js";
 
 export const renderItems = (data) => {
   const ulElement = document.createElement('ul');
@@ -21,11 +21,9 @@ export const renderItems = (data) => {
     liElement.classList.add('item-style');
   
     ulElement.appendChild(liElement);
-  });
-  
+  });  
   return ulElement;
 };
-
 
 document.addEventListener('DOMContentLoaded', () => {
   const rootElement = document.querySelector('#root');

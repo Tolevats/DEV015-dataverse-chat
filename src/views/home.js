@@ -1,3 +1,4 @@
+
 import { Footer } from "../components/footer.js";
 //import { navigateTo } from "../router.js";
 import { Header } from "../components/header.js";
@@ -12,7 +13,7 @@ export function Principal(props) {
   viewEl.appendChild(Header());
   viewEl.appendChild(main());
   const data = props?.data || dataset;
-  viewEl.appendChild(renderItems(data));
+  viewEl.appendChild(renderItems(data));  //paso data a renderitems
 
   viewEl.appendChild(Footer());
   return viewEl;
