@@ -1,6 +1,7 @@
 import data from "../data/dataset.js";
 import { filterData, sortData, computeStats } from "../lib/dataFunctions.js";
 
+
 export const renderItems = (data) => {
   const ulElement = document.createElement('ul');
   
@@ -17,7 +18,7 @@ export const renderItems = (data) => {
         <p itemprop="description">${item.shortDescription}</p>
         <p itemprop="year"><span class="sizing">Transmisión: </span>${item.facts.yearOfRelease} - ${item.facts.yearOfEnd}</p>
         <p itemprop="rating"><span class="sizing">Rating: </span>${item.facts.averageRating} /10<span class="star">&#11088;</span></p>`;
-  
+    //cambios en h3 item-name (antes root)
     liElement.classList.add('item-style');
   
     ulElement.appendChild(liElement);
