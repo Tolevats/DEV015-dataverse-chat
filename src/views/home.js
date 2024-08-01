@@ -1,34 +1,19 @@
-import { Footer } from "../Componentss/Footer.js";
-import { navigateTo } from "../router.js";
-import {Header} from "../Componentss/Header.js"
-//importación de la data
-//importar las trajetas
-//importar las funciones 
-//importar Footer
-//importar Header
 
-export function Principal() {
+import { Footer } from "../components/footer.js";
+//import { navigateTo } from "../router.js";
+import { Header } from "../components/header.js";
+import { main } from "../components/main.js";
+import { renderItems } from "../components/cards.js"
+import dataset from "../data/dataset.js";
+
+export function Principal(props) {
   const viewEl = document.createElement('div');
   viewEl.setAttribute("class","view");
-  //const main = document.createElement("main");
-  //main.appendChild()
-  
-
-
-
-  const title = document.createElement('h1');
-  title.textContent = 'Hola Mundo';
-
-  const Button = document.createElement('button');
-  Button.textContent = 'Ir a Chat Grupal';
-  Button.addEventListener('click', () => {
-    navigateTo("/chatGrupal")//como esta en la guía para cada tarjeta
-  });
 
   viewEl.appendChild(Header());
-
-  viewEl.appendChild(title);
-  viewEl.appendChild(Button);
+  viewEl.appendChild(main());
+  const data = props?.data || dataset;
+  viewEl.appendChild(renderItems(data));  //paso data a renderItems
   viewEl.appendChild(Footer());
   return viewEl;
 }
