@@ -47,6 +47,9 @@ export const main = () => {
           <div class="button-container">
             <button data-testid="button-clear" id="buttonClear">Limpiar filtros</button>
             <button id="buttonStats">Estadística</button>
+            <button id="ChatGrupal">Chat Grupal</button>
+            <p><a href="views/viewApi.js">Api Key</a>.</p>
+
           </div>
         </div>
       </section>
