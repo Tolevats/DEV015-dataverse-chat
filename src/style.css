@@ -20,7 +20,7 @@ body {
     padding: 10px;
     text-align: right;
     font-family: "Gugi", sans-serif;
-    font-size: 18px;
+    font-size: 20px;
     color:#ffffff;
     text-shadow: 0 0 15px #66c3ff;
     letter-spacing: 1px; 
@@ -31,6 +31,7 @@ body {
     flex-wrap: wrap;
     background-color: #2b6e8f;
     box-shadow: 0 0 10px #66c3ff; 
+    padding: 0%;
 }
 
 .description-container {
@@ -71,49 +72,76 @@ h3 {
     font-size: 16px;
 }
 
-.Filtro{
-    padding: 25px 30px; 
-}
-
 label {
-    font-family: "Gugi", sans-serif;
-    font-size: 20px;
-    color: #000000;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7);
+    display: none;
 }
 
 .button-container {
     display: flex;
     justify-content: center; 
     align-items: center; 
-    height: 12vh; 
-    padding: 10px;
+    height: 14vh; 
     flex-wrap: wrap;
+
+}
+button:hover {
+  cursor: pointer;
+  background-color: #ffffff;
+  color: #1411e6;
 }
 
-button {
+#buttonClear {
     justify-content: center;
     align-items: center;
     display: inline-flex;
-    background-color: #405c81;
+    background-color: #EB455F;
     color: #FCFFE7;
     font-family: "Gugi", sans-serif;
-    font-size: 15px;
+    font-size: 70%;
     padding: 6px 10px;
-    margin: 4px 40px 30px 20px;
+    margin: 2px 20px 15px 10px;
     border: 0;
     border-radius: 15px;
-    width: 100px; 
-    height: 50px;
+    width: 20%; 
+    height: 35px;
+    text-align: center;
+    overflow: hidden;
+  }
+  #ChatGrupal
+   {
+    justify-content: center;
+    align-items: center;
+    display: inline-flex;
+    background-color:#FCFFE7;
+    color: #EB455F;
+    font-family: "Gugi", sans-serif;
+    font-size: 70%;
+    padding: 6px 10px;
+    margin: 2px 20px 15px 10px;
+    border: 0;
+    border-radius: 15px;
+    width: 20%;
+    height: 35px;
     text-align: center;
   }
 
-button:hover {
-    cursor: pointer;
-    background-color: #ffffff;
-    color: #1411e6;
-}
+  #buttonStats {
+    justify-content: center;
+    align-items: center;
+    display: inline-flex;
+    background-color: #FCFFE7;
+    color: #EB455F;
+    font-family: "Gugi", sans-serif;
+    font-size: 70%;
+    padding: 6px 10px;
+    margin: 2px 20px 15px 10px;
+    border: 0;
+    border-radius: 15px;
+    width: 20%;
+    height: 35px;
+    text-align: center;
+  }
+
 
 ul {
     display: flex;
@@ -189,133 +217,105 @@ select {
     font-size: 12px; 
     border-radius: 5px; 
     border: 2px solid #52a5dd;
+    justify-items: center;
+    align-items: center;
+    margin : 5% 0 5% 10%;
+    width: 75%;
     
-    
+  }
+.API {
+  margin : 5% 0 5% 40%;
+  overflow: hidden;
 }
-.filtros select {
-    line-height: 1.5; /* Esto aumenta la altura de la línea */
-    height: 30px;
-    padding: 1px;
-    font-size: 12px;
-    box-shadow: 0 4px 8px #68b0e0;
-    text-align: center;
-    justify-content: center;
+#results {
+  text-align: center;
+  padding: 20px;
 }
 
-@media screen and (max-width: 1024px) {
+.highlight {
+  font-size: 32px;
+  font-weight: bold; 
+  color: #EB455F;
+}
+
+.sizing {
+  font-size: 10px;
+}
+.star {
+  margin-left: 20px; 
+}
+@media screen and (min-width: 621px) and (max-width: 1000px) {
+    
+  h2, h3 {
+    
+     position: relative;
+     z-index: 2; /* Coloca el texto sobre la superposición */
+     color: #000000;
+     }
+  
+    h2 {
+      font-size: 22px;
+     }
+    h3 {
+    font-size: 12px;
+     }
     .SecondContainer {
       flex-direction: column;
     }
   
     .button-container {
+      
+      align-items: center;
+      margin-bottom: 10%;
+    }
+  
+    select {
       flex-direction: column;
       align-items: center;
+      width: 80%;
+      margin : 5% 5% 2% 10%;
     }
-  
-    .Filtro {
-      padding: 15px;
-      text-align: center;
-      justify-content: center;
-    }
+   .API{
+     position: relative;
+     top: -120px;
+     left: 5px;
+   }  
+     
   }
   
-  @media screen and (max-width: 768px) {
-    .header-container {
-      font-size: 16px;
-    }
-  
-    .description-container {
-      max-height: 300px;
-    }
-
-    .Filtro {
-      flex-direction: column;
-      align-items: stretch;
-      width: 100%;
-      margin-bottom: 10px;
-    }
+  @media screen and (max-width: 620px) and (min-width: 331px)  {
+     .API{
+     position: relative;
+     top: -30px;
+     left: 5px;
+   }  
+    h2, h3 {
     
-    .button-container {
-      display: flex; 
-      flex-direction: row; 
-      justify-content: center; 
-      align-items: center;
-      margin-top: 10px; 
-      overflow-x: auto; 
-      padding-bottom: 10px;
+      position: relative;
+      z-index: 2; /* Coloca el texto sobre la superposición */
+      color: #000000;
+      }
+   
+     h2 {
+       font-size: 22px;
+      }
+     h3 {
+     font-size: 12px;
+      }
+     .SecondContainer {
+       flex-direction: column;
+     }
+   
+     .button-container {
+      /* flex-direction: column;*/
+       align-items: center;
+       margin-bottom: 1%;
+     }
+     select {
+       flex-direction: column;
+       align-items: center;
+       width: 80%;
+       margin : 5% 5% 0% 10%;
+     }
     }
-  
-    .button-container button {
-      margin: 0 5px; 
-    }
-  }
-
-  @media screen and (min-width: 769px) and (max-width: 1024px) {
-    .button-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-    }
-
-    .button-container button {
-        margin: 5px;
-    }
-}
-
-@media screen and (max-width: 498px) and (min-width: 331px) {
-  .Filtro {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 10px;
-  }
-  
-  .Filtro select {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-}
-
-  @media screen and (max-width: 480px) {
-    .header-container {
-      font-size: 14px;
-    }
-  
-    .description-container {
-      max-height: 250px;
-    }
-  
-    .button-container {
-      display: flex; 
-      flex-direction: row; 
-      justify-content: center; 
-      align-items: center;
-      margin-top: 10px; 
-      overflow-x: auto; 
-      padding-bottom: 10px; 
-    }
-  
-    .button-container button {
-      margin: 0 5px; 
-    }
-  }
-  
-  #results {
-    text-align: center;
-    padding: 20px;
-  }
-
-  .highlight {
-    font-size: 32px;
-    font-weight: bold; 
-    color: #EB455F;
-  }
-
-  .sizing {
-    font-size: 10px;
-  }
-  .star {
-    margin-left: 20px; 
-  }
+   
