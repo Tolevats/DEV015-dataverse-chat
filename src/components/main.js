@@ -9,10 +9,10 @@ export const main = () => {
         </div>
 
         <div class="FiltroContainer">
-          <div class="Filtro">
+        
             <label for="platform">Filtrar por:</label>
             <select data-testid="select-filter" name="platform" id="platform">
-              <option value="" disabled selected>seleccionar</option>
+              <option value="" disabled selected>Filtrar por:</option>
               <option value="Adult Swim">Adult Swim</option>
               <option value="Amazon Prime Video">Amazon Prime Video</option>
               <option value="BBC">BBC</option>
@@ -28,7 +28,7 @@ export const main = () => {
             </select>
             <label for="sortBy">Ordenar por:</label>
             <select data-testid="select-sort" name="sortBy" id="sortBy">
-              <option value="" disabled selected>seleccionar</option>
+              <option value="" disabled selected>Ordenar por:</option>
               <optgroup label="Título">
                 <option value="name-asc">A a Z</option>
                 <option value="name-desc">Z a A</option>
@@ -42,12 +42,13 @@ export const main = () => {
                 <option value="averageRating-desc">Mejor rating</option>
               </optgroup>
             </select>
-          </div>
 
           <div class="button-container">
             <button data-testid="button-clear" id="buttonClear">Limpiar filtros</button>
             <button id="buttonStats">Estadística</button>
+            <button id="ChatGrupal">Chat Grupal</button>
           </div>
+          <p class="API"><a href="views/viewApi.js">Api Key</a>.</p>
         </div>
       </section>
       <div id="results"></div>
