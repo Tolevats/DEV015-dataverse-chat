@@ -41,7 +41,7 @@ body {
   max-height: 400px;
   padding: 20px;
   margin: 0px; 
-  background-image: url(assets/SFD.png); 
+  background-image: url(assets/img/SFD.png); 
   background-size: cover;
   box-shadow: 0 0 10px #66c3ff;
   overflow: hidden; /* Asegura que la superposición no se salga del contenedor */
@@ -83,11 +83,6 @@ label {
     height: 14vh; 
     flex-wrap: wrap;
 
-}
-button:hover {
-  cursor: pointer;
-  background-color: #ffffff;
-  color: #1411e6;
 }
 
 #buttonClear {
@@ -141,7 +136,19 @@ button:hover {
     height: 35px;
     text-align: center;
   }
-
+#buttonClear:hover {
+  background-color: #fff;
+  border: 2px solid #EB455F;
+  color: #EB455F;
+  cursor: pointer;
+}
+#buttonStats:hover,
+#ChatGrupal:hover {
+  background-color: #fff;
+  border: 2px solid #EB455F;
+  color: #1b485d;
+  cursor: pointer;
+}
 
 ul {
     display: flex;
