@@ -12,4 +12,5 @@ const modal = () => {
   <input type="text" name="input-key" value="" id="modal-input" />
   <button id="modal-button" value="save" class="button-modal">Guardar API key</button>
     `;
+  return viewApi;
 }
