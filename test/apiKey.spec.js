@@ -1,5 +1,4 @@
-import { getApiKey, setApiKey } from "../lib/apiKey.js";
-
+import { getApiKey, setApiKey } from "../src/lib/apiKey.js";
 describe("getApiKey", () => {
   it("debería devolver el valor de la API Key", () => {
     const apiKeyValue = "minhaAPIKey";

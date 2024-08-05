@@ -1,4 +1,4 @@
-/*// src/lib/apiKey.js
+// src/lib/apiKey.js
 
 export const getApiKey = () => {
   return localStorage.getItem("apiKeyChat"); // Implementa el código para obtener la API KEY desde Local Storage
@@ -7,5 +7,5 @@ export const getApiKey = () => {
  
 export const setApiKey = (key) => {
   localStorage.setItem("apiKeyChat",key);// Implementa el código para guardar la API KEY en Local Storage
-  console.log(JSON.parse(localStorage.getItem("apiKeyChat")));// toda la info salió de aquí https://developer.mozilla.org/en-US/docs/Web/API/Storage/s
-};*/
+  //console.log(localStorage.getItem("apiKeyChat"));// toda la info salió de aquí https://developer.mozilla.org/en-US/docs/Web/API/Storage/s
+};

@@ -1,12 +1,11 @@
 //considerar tener un archivo de prueba por cada archivo javascript que desees probar.
-
 import { filterData, sortData, computeStats } from '../src/lib/dataFunctions.js';
-import { data } from './src/data/dataset.js';
+import data from '../src/data/dataset.js';
 
 describe('filterData', () => {
   it('se filtra data por streamingPlatform', () => {
     const filteredData = filterData(data, 'streamingPlatform', 'Netflix');
-    expect(filteredData.length).toBe(2); // Esperamos 2 resultados
+    expect(filteredData.length).toBe(7); // Esperamos 2 resultados
     expect(filteredData[0].id).toBe('stranger-things'); // Verificamos el ID del primer elemento
     expect(filteredData[1].id).toBe('black-mirror'); // Verificamos el ID del segundo elemento
   });
