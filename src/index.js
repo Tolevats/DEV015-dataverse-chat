@@ -1,6 +1,7 @@
-import { Principal } from './views/home.js'; 
+import { Principal } from './views/home.js';
+import { Chat } from './views/chat.js'; 
 import { chatGrupal } from './views/groupChat.js';
-// ... import other views
+import { Fail } from './views/error.js';
 import { setRootEl, setRoutes, onURLChange } from './router.js';
 //import dataset from './data/dataset.js';
 //import { filterData, sortData, computeStats } from './lib/dataFunctions.js'
@@ -15,9 +16,12 @@ import { setRootEl, setRoutes, onURLChange } from './router.js';
 // Define your routes and their associated views
 const routes = {
   '/': Principal,
-  '/chatGrupal': chatGrupal,
-  
+  '/error': Fail,
+  '/api-key': modal,
+  '/chat': Chat,
+  '/group-chat': chatGrupal,
 };
+
 setRoutes(routes); // Assign the routes
 
 
