@@ -11,6 +11,7 @@ export const Fail = () => {
   // Crear y añadir contenido principal de la página de error
   const mainContent = document.createElement('div');
   mainContent.innerHTML = `
+  <link rel="stylesheet" href="assets/CSS/styleFail.css">
   <h1 class="errorNum">404</h1>
   <h2 class="headingError">¡Ups! Página no encontrada</h2>
   <picture class="sciFiError">
