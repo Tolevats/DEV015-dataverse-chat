@@ -1,30 +1,41 @@
+//import { Header } from "../components/header.js";
+//import { Footer } from "../components/footer.js";
+//import dataset from "../data/dataset.js";
 import { navigateTo } from "../router.js";
-// eslint-disable-next-line no-unused-vars
-export function chatGrupal(props) {// 
-  const viewEl = document.createElement('div');
-  const title = document.createElement('h1');
-  title.textContent = 'Chat Grupal';
+//import { Footer } from "../components/footer.js";
+//import { communicateWithOpenAI } from '../lib/openAIApi.js';
 
+export const chatGrupal = () => { 
+  const viewEl = document.createElement('section');
+  /*   viewEl.setAttribute("class","view");
+    
+  viewEl.appendChild(Header());
+  const mainEl = main ();
+  viewEl.appendChild(mainEl); */
+  const viewChatGroup = document.createElement('section');
+  viewChatGroup.innerHTML = `
+  <section class='viewChatGroup'>
+    <button id='goBack'>Home</button>
+    <div class='chat-container'>
+      <div class='navbar-chatGroup'>
+        <div class='series'></div>
+      <div>
+      <div class='form-chatGroup'>
+        <div class="text-message">
+          <input id='input-chatGroup' type='text' placeholder='Escribe aquí para iniciar tu chat'>
+          <button class='btn-send' id='btn-ChatGroup'>Send</button>
+        </div>
+      <div>
+    </div>
+  </section>
+  `;
+  /*   viewEl.appendChild(viewChatGroup);
+  viewEl.appendChild(Footer()); */
 
-  const Button = document.createElement('button');
-  Button.textContent = 'Ir a Home';
-  Button.addEventListener('click', () => {
-    navigateTo("/principal") //Ver como REGRESAR A PRINCIPAL
-
+  const btnBackHome = viewEl.querySelector('#goBack');
+  btnBackHome.addEventListener("click", () => {
+    navigateTo("/");
   });
-  /*const link = document.createElement('a');
-  link.href = "#";
-  link.textContent = 'Ir a Home (enlace)';
-  link.addEventListener('click', (e) => {
-    e.preventDefault(); // Prevenir el comportamiento por defecto del enlace
-    navigateTo("/principal"); // Navega a la página de inicio
-  });*/
-
-
-  viewEl.appendChild(title);
-  viewEl.appendChild(Button);
-  //viewEl.appendChild(link);
 
   return viewEl;
 }
-
