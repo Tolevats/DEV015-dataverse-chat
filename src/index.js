@@ -17,7 +17,7 @@ import { setRootEl, setRoutes, onURLChange } from './router.js';
 const routes = {
   '/': Principal,
   '/error': Fail,
-  '/api-key': modal,
+  /* '/api-key': modal, */
   '/chat': Chat,
   '/group-chat': chatGrupal,
 };
