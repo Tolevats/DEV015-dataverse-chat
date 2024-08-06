@@ -1,0 +1,42 @@
+/* Estilos para el encabezado de error */
+.errorNum {
+    font-size: 200px;
+    color: #EB455F;
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  /* Estilos para el mensaje de error */
+  .headingError {
+    font-size: 60px;
+    color: #FCFFE7;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para la imagen */
+  .sciFiError img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Estilos para el botón */
+  #backHome {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #FCFFE7;
+    background-color: #EB455F;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #backHome:hover {
+    background-color: #0056b3;
+  }
+  
