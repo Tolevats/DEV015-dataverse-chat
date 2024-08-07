@@ -1,6 +1,6 @@
-import { getApiKey, setApiKey } from "../lib/apiKey.js";
+//import { getApiKey, setApiKey } from "../lib/apiKey.js";
 
-const modal = () => {
+/*const modal = () => {
   const viewApi = document.createElement("section");
   viewApi.classList.add("modal-container");
   viewApi.id= "modal-section";
@@ -13,4 +13,4 @@ const modal = () => {
   <button id="modal-button" value="save" class="button-modal">Guardar API key</button>
     `;
   return viewApi;
-}
+}*/
