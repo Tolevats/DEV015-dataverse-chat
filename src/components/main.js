@@ -53,7 +53,7 @@ export const main = () => {
         </div>
       </section>
       <div id="results"></div>
-      <div id="modal"></div>
+      
     `
   return mainElement;
 };
