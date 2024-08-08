@@ -39,5 +39,14 @@ export const modal = () => {
   closeButton.addEventListener('click', closeModal);
   saveButton.addEventListener('click', saveApiKey);
   
-  return viewApi;
+  window.addEventListener('click', (event) => {//agregado
+    if (event.target === overlay) //agregado
+      closeModal(); //agregado
+    }//agregado
+  });//agregado
+
+  /*return viewApi; cambiado por */ 
+  overlay.appendChild(viewApi);
+  document.body.appendChild(overlay);
+  return { overlay, viewApi };
 };
