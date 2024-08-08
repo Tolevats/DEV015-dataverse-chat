@@ -11,8 +11,8 @@ export const modal = () => {
   viewApi.innerHTML = `
     <div id="API" >
     <button id="close-button" value="close" class="close-modal">X</button>
-    <h1 itemprop="title modal" id="title-name"> Agrega la API key compartida </h1>
-    <h2 itemprop="title2 modal"> ¡Comienza a chatear con tus series favoritas! </h2>
+    <h1 itemprop="title modal" id="title-name">Agrega la API key compartida</h1>
+    <h2 itemprop="title2 modal"> ¡Comienza a chatear con tus series favoritas!</h2>
     <input type="text" name="input-key" value="" id="modal-input" class="input-modal"/>
     <button id="modal-button" value="save" class="button-modal">Guardar API key</button>
     </div>
@@ -62,13 +62,13 @@ export const modal = () => {
       //intentar obtener la API key y manejar posibles errores
       try {
         setApiKey(apiKey);
-        const successModal = createModal('¡Felicitaciones! Ahora puedes disfrutar de nuestros chats.', 'success');
+        const successModal = createModal('¡Felicitaciones!<br><br>Ahora puedes disfrutar de nuestros chats.', 'success');
         setTimeout(() => {
           successModal.remove(); //Eliminar modal de éxito
           closeModal(); //Cerrar modal de api
         }, 5000);
       } catch (error) {
-        createModal('API key no válida. Por favor, verifica la clave e inténtalo nuevamente.');
+        createModal('API key no válida.<br>Por favor, verifica la clave e inténtalo nuevamente.'); //esto por revisar
       }
     }
   }
