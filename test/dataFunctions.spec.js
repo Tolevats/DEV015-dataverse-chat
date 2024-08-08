@@ -22,6 +22,12 @@ describe('sortData', () => {
     expect(sortedData[23].name).toBe('Westworld');
   });
 
+  it('se ordena la data por nombre en orden descendente', () => {
+    const sortedData = sortData(data, 'name', 'desc');
+    expect(sortedData[0].name).toBe('Westworld');
+    expect(sortedData[23].name).toBe('Altered Carbon');
+  });
+
   it('se ordena la data por año de lanzamiento ascendente', () => { 
     const sortedData = sortData(data, 'yearOfRelease','asc');
     expect(sortedData[0].facts.yearOfRelease).toBe('1959');
