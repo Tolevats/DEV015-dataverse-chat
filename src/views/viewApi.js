@@ -1,17 +1,21 @@
-// viewApi.js
 import { getApiKey, setApiKey } from "../lib/apiKey.js";
 
 export const modal = () => {
-  const viewApi = document.createElement("section");
-  viewApi.classList.add("modal-container");
-  viewApi.id = "modal-section";
+  const overlay = document.createElement('div');
+  overlay.classList.add('overlay');
+
+  const viewApi = document.createElement('section');
+  viewApi.classList.add('modal-container');
+  viewApi.id = 'modal-section';
 
   viewApi.innerHTML = `
-    <h1 itemprop="title" id="title-name"> Agrega la API key compartida </h1>
-    <h2> ¡Comienza a chatear con tus series favoritas! </h2>
+    <div id="API" >
+    <button id="close-button" value="close" class="close-modal">X</button>
+    <h1 itemprop="title modal" id="title-name"> Agrega la API key compartida </h1>
+    <h2 itemprop="title2 modal"> ¡Comienza a chatear con tus series favoritas! </h2>
     <input type="text" name="input-key" value="" id="modal-input" />
     <button id="modal-button" value="save" class="button-modal">Guardar API key</button>
-    <button id="close-button" value="close" class="close-modal">X</button>
+    </div>
   `;
 
   const closeButton = viewApi.querySelector('#close-button');
@@ -22,14 +26,14 @@ export const modal = () => {
   apiKeyInput.value = getApiKey() || '';
 
   function closeModal() {
-    viewApi.style.display = 'none';
+    overlay.style.display = 'none';
   }
 
   function saveApiKey() {
     const apiKey = apiKeyInput.value.trim();
     if (apiKey) {
       setApiKey(apiKey);
-      alert('Clave de API guardada correctamente.');
+      alert('¡Felicitaciones! Ahora puedes disfrutar de nuestros chats.');
       closeModal();
     } else {
       alert('Por favor, ingresa una clave de API.');
@@ -38,14 +42,13 @@ export const modal = () => {
 
   closeButton.addEventListener('click', closeModal);
   saveButton.addEventListener('click', saveApiKey);
-  
-  window.addEventListener('click', (event) => {//agregado
-    if (event.target === overlay) //agregado
-      closeModal(); //agregado
-    }//agregado
-  });//agregado
 
-  /*return viewApi; cambiado por */ 
+  window.addEventListener('click', (event) => {
+    if (event.target === overlay) {
+      closeModal();
+    }
+  });
+
   overlay.appendChild(viewApi);
   document.body.appendChild(overlay);
   return { overlay, viewApi };

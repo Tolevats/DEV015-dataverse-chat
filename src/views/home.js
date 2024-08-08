@@ -12,16 +12,12 @@ export function Principal(props) {
   viewEl.setAttribute("class", "view");
 
   viewEl.appendChild(Header());
-  const mainElement = main(); // Agregado
-  viewEl.appendChild(mainElement); // Agregado
-  viewEl.appendChild(Footer()); // Agregado
+  const mainElement = main();
+  viewEl.appendChild(mainElement);
+  viewEl.appendChild(Footer());
 
   const data = props?.data || dataset;
   const originalData = [...data];
-
-  // MODAL Agregado
-  /*const apiKeyModal = modal();
-  viewEl.appendChild(apiKeyModal.viewApi);*/
 
   const platformSelect = mainElement.querySelector('#platform');
   const sortBySelect = mainElement.querySelector('#sortBy');
@@ -29,7 +25,9 @@ export function Principal(props) {
   const buttonStats = mainElement.querySelector('#buttonStats');
   const resultsContainer = mainElement.querySelector('#results');
   const linkAPI = mainElement.querySelector('#modalLink');
-  const modalContainer = mainElement.querySelector('#modal')
+  
+  // Eliminamos la declaración de modalContainer
+  // const modalContainer = mainElement.querySelector('#modal');
 
   if (platformSelect && sortBySelect && buttonReset && buttonStats && resultsContainer && linkAPI) {
     const renderFilteredData = () => {
@@ -51,13 +49,8 @@ export function Principal(props) {
       resultsContainer.appendChild(renderItems(filteredData));
     };
 
-    platformSelect.addEventListener('change', () => {
-      renderFilteredData();
-    });
-
-    sortBySelect.addEventListener('change', () => {
-      renderFilteredData();
-    });
+    platformSelect.addEventListener('change', renderFilteredData);
+    sortBySelect.addEventListener('change', renderFilteredData);
 
     buttonReset.addEventListener('click', () => {
       platformSelect.selectedIndex = 0;
@@ -75,17 +68,15 @@ export function Principal(props) {
 
     linkAPI.addEventListener('click', (event) => {
       event.preventDefault();
-
-      //crea modal
-      const modalElement = modal ();
-      modalContainer.innerHTML= '';
-      modalContainer.appendChild(modalElement);
-      modalElement.style.display = 'flex';
-
+      
+      // Crear y mostrar el modal con superposición
+      const { overlay, viewApi } = modal();
+      document.body.appendChild(overlay);
+      viewApi.style.display = 'flex';
+      overlay.style.display = 'flex';
     });
 
     resultsContainer.appendChild(renderItems(dataset));
-
   } else {
     console.error('Uno o más elementos no se pudieron seleccionar:', {
       platformSelect,
