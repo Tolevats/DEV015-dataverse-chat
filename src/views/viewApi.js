@@ -29,7 +29,7 @@ export const modal = () => {
     overlay.style.display = 'none';
   }
 
-  function saveApiKey() {
+  /*   function saveApiKey() {
     const apiKey = apiKeyInput.value.trim();
     if (apiKey) {
       setApiKey(apiKey);
@@ -38,7 +38,24 @@ export const modal = () => {
     } else {
       alert('Por favor, ingresa una clave de API.');
     }
+  } */
+  function saveApiKey() {
+    const apiKey = apiKeyInput.value.trim();
+    
+    if (!apiKey) {
+      alert('Por favor, ingresa una clave API.');
+    } else {
+      // Intentar obtener la API key y manejar posibles errores
+      try {
+        setApiKey(apiKey);
+        alert('¡Felicitaciones! Ahora puedes disfrutar de nuestros chats.');
+        closeModal();
+      } catch (error) { //para que salga este error habría que guardar la apikey que nos compartieron?
+        alert('API key no válida. Por favor, verifica la clave e inténtalo nuevamente.');
+      }
+    }
   }
+
 
   closeButton.addEventListener('click', closeModal);
   saveButton.addEventListener('click', saveApiKey);
