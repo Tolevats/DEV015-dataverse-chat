@@ -1,34 +1,35 @@
-
 import { Footer } from "../components/footer.js";
-//import { navigateTo } from "../router.js";
+// import { navigateTo } from "../router.js";
 import { Header } from "../components/header.js";
 import { main } from "../components/main.js";
 import { renderItems } from "../components/cards.js";
-import dataset from "../data/dataset.js"
-import { filterData, sortData, computeStats } from '../lib/dataFunctions.js'
+import dataset from "../data/dataset.js";
+import { filterData, sortData, computeStats } from '../lib/dataFunctions.js';
+import { modal } from "./viewApi.js";
 
 export function Principal(props) {
   const viewEl = document.createElement('div');
-  viewEl.setAttribute("class","view");
-  
+  viewEl.setAttribute("class", "view");
+
   viewEl.appendChild(Header());
-  viewEl.appendChild(main());
+  const mainElement = main();
+  viewEl.appendChild(mainElement);
+  viewEl.appendChild(Footer());
 
   const data = props?.data || dataset;
   const originalData = [...data];
 
-  //viewEl.appendChild(renderItems(data)); //paso data a renderitems
-  viewEl.appendChild(Footer());
+  const platformSelect = mainElement.querySelector('#platform');
+  const sortBySelect = mainElement.querySelector('#sortBy');
+  const buttonReset = mainElement.querySelector('#buttonClear');
+  const buttonStats = mainElement.querySelector('#buttonStats');
+  const resultsContainer = mainElement.querySelector('#results');
+  const linkAPI = mainElement.querySelector('#modalLink');
+  
+  // Eliminamos la declaración de modalContainer
+  // const modalContainer = mainElement.querySelector('#modal');
 
-  const platformSelect = viewEl.querySelector('#platform');
-  const sortBySelect = viewEl.querySelector('#sortBy');
-  const buttonReset = viewEl.querySelector('#buttonClear');
-  const buttonStats = viewEl.querySelector('#buttonStats');
-  const resultsContainer = viewEl.querySelector('#results');
-
-
-  if (platformSelect && sortBySelect && buttonReset && buttonStats && resultsContainer) {
-
+  if (platformSelect && sortBySelect && buttonReset && buttonStats && resultsContainer && linkAPI) {
     const renderFilteredData = () => {
       const platform = platformSelect.value;
       const sortByOption = sortBySelect.value.split('-');
@@ -44,23 +45,14 @@ export function Principal(props) {
         filteredData = sortData(filteredData, sortBy, sortOrder);
       }
 
-      //console.log('Filtered Data:', filteredData); 
       resultsContainer.innerHTML = '';
       resultsContainer.appendChild(renderItems(filteredData));
     };
 
-    platformSelect.addEventListener('change', () => {
-      //console.log('Platform changed:', platformSelect.value);
-      renderFilteredData();
-    });
-
-    sortBySelect.addEventListener('change', () => {
-      // console.log('Sort by changed:', sortBySelect.value);
-      renderFilteredData();
-    });
+    platformSelect.addEventListener('change', renderFilteredData);
+    sortBySelect.addEventListener('change', renderFilteredData);
 
     buttonReset.addEventListener('click', () => {
-      //console.log('Reset button clicked');
       platformSelect.selectedIndex = 0;
       sortBySelect.selectedIndex = 0;
       resultsContainer.innerHTML = '';
@@ -68,18 +60,33 @@ export function Principal(props) {
     });
 
     buttonStats.addEventListener('click', () => {
-      //console.log('Stats button clicked');
       const stats = computeStats(dataset);
-      //console.log('Stats:', stats); // Debugging
       resultsContainer.innerHTML = `
         <h4><span class="highlight">${stats.avgYears.toFixed(2)} años</span> promedia una transmisión.</h4>
       `;
     });
 
+    linkAPI.addEventListener('click', (event) => {
+      event.preventDefault();
+      
+      // Crear y mostrar el modal con superposición
+      const { overlay, viewApi } = modal();
+      document.body.appendChild(overlay);
+      viewApi.style.display = 'flex';
+      overlay.style.display = 'flex';
+    });
+
     resultsContainer.appendChild(renderItems(dataset));
-    //queremos ver los objetos junto con las estadisticas ??????
+  } else {
+    console.error('Uno o más elementos no se pudieron seleccionar:', {
+      platformSelect,
+      sortBySelect,
+      buttonReset,
+      buttonStats,
+      resultsContainer,
+      linkAPI,
+    });
   }
 
-  
   return viewEl;
-}//prueba de commit 
+}

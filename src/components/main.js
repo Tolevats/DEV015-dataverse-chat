@@ -1,3 +1,4 @@
+
 export const main = () => {
   const mainElement = document.createElement("main");
   mainElement.innerHTML = `
@@ -48,10 +49,11 @@ export const main = () => {
             <button id="buttonStats">Estadística</button>
             <button id="ChatGrupal">Chat Grupal</button>
           </div>
-          <p class="API"><a href="views/viewApi.js">Api Key</a>.</p>
+          <p class="API"><a href="#" id="modalLink">Api Key</a>.</p>
         </div>
       </section>
       <div id="results"></div>
+      
     `
   return mainElement;
-}
+};
