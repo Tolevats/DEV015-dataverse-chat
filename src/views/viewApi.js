@@ -12,7 +12,7 @@ export const modal = () => {
     <div id="API" >
     <button id="close-button" value="close" class="close-modal">X</button>
     <h1 itemprop="title modal" id="title-name">Agrega la API key compartida</h1>
-    <h2 itemprop="title2 modal"> ¡Comienza a chatear con tus series favoritas!</h2>
+    <h2 itemprop="title2 modal">¡Comienza a chatear con tus series favoritas!</h2>
     <input type="text" name="input-key" value="" id="modal-input" class="input-modal"/>
     <button id="modal-button" value="save" class="button-modal">Guardar API key</button>
     </div>
@@ -40,7 +40,7 @@ export const modal = () => {
     modalContainer.appendChild(modalContent);
     overlay.appendChild(modalContainer);
 
-    //añadir event listener para cerra botón
+    //añadir event listener para cerrar botón
     const closeModalButton = modalContainer.querySelector('.close-modal');
     closeModalButton.addEventListener('click', () => {
       modalContainer.remove();
