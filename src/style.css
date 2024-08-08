@@ -264,7 +264,7 @@ select {
   z-index: 1000;
 }
 .modal-container {
-  position: relative; /* Establece el contenedor del modal como relativo para posicionar los elementos dentro de él */
+  position: relative; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -274,7 +274,7 @@ select {
   border-radius: 8px;
 }
 #modal-input {
-  width: 80%; /* Asegurar que el input sea más largo */
+  width: 100%; /* Asegurar que el input sea más largo */
   padding: 10px;
   margin: 10px 0;
   font-size: 16px;
@@ -283,8 +283,8 @@ select {
 }
 
 .button-modal {
-  width: 80%; /* Asegurar que el botón sea más largo */
-  padding: 10px;
+  width: 100%; /* Asegurar que el botón sea más largo */
+  padding: 15px;
   font-size: 16px;
   margin: 10px 0;
   cursor: pointer;
@@ -295,15 +295,15 @@ select {
 }
 
 .close-modal {
-  position: absolute; /* Posiciona el botón de manera absoluta respecto al contenedor del modal */
-  top: 10px; /* Ajusta el espacio desde la parte superior del contenedor */
-  right: 10px; /* Ajusta el espacio desde el borde derecho del contenedor */
+  position: absolute; 
+  top: 12px; 
+  right: 10px;
   background: rgb(158, 157, 157);
   color: rgb(7, 7, 7);
   border: none;
   padding: 5px 10px;
   cursor: pointer;
-  border-radius: 50%; /* Redondeo completo del botón */
+  border-radius: 50%; 
 }
 h1[itemprop="title modal"] {
   color: blue;
