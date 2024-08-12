@@ -62,7 +62,7 @@ export const modal = () => {
       //intentar obtener la API key y manejar posibles errores
       try {
         setApiKey(apiKey);
-        const successModal = createModal('¡Felicitaciones!<br><br>Ahora puedes disfrutar de nuestros chats.', 'success');
+        const successModal = createModal('<h1 itemprop="title modal">¡Felicitaciones!<h1><h2 itemprop="title2 modal">Ahora puedes disfrutar de nuestros chats.<h2>', 'success');
         setTimeout(() => {
           successModal.remove(); //Eliminar modal de éxito
           closeModal(); //Cerrar modal de api
