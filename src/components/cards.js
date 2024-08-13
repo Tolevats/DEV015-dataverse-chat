@@ -1,4 +1,4 @@
-//import { navigateTo } from "../router";
+import { navigateTo } from "../router.js";
 
 export const renderItems = (data) => {
   const ulElement = document.createElement('ul');
@@ -13,10 +13,6 @@ export const renderItems = (data) => {
     liElement.title = "¡Vamos a chatear!"; //añade el tooltip
     liElement.style.cursor = "pointer"; //cambia el cursor a pointer cuando pase sobre el elemento
 
-    //para navegar a la vista "chat" al hacer clic
-    /*     liElement.addEventListener('click', () => {
-      navigateTo('/chat');
-    }); */
 
     liElement.innerHTML = `
         <img src="${item.imageUrl}" alt="${item.name}" itemprop="image">
@@ -29,6 +25,10 @@ export const renderItems = (data) => {
     liElement.classList.add('item-style');
   
     ulElement.appendChild(liElement);
+    //para navegar a la vista "chat" al hacer clic
+    liElement.addEventListener('click', () => {
+      navigateTo('/chat');
+    }); 
   });
   return ulElement;
 };
