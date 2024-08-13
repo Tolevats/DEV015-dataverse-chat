@@ -6,6 +6,7 @@ import { renderItems } from "../components/cards.js";
 import dataset from "../data/dataset.js";
 import { filterData, sortData, computeStats } from '../lib/dataFunctions.js';
 import { modal } from "./viewApi.js";
+import { getApiKey } from "../lib/apiKey.js";
 
 export function Principal(props) {
   const viewEl = document.createElement('div');
@@ -67,6 +68,8 @@ export function Principal(props) {
       `;
     });
     ChatGrupal.addEventListener('click', () => {
+      if (!getApiKey()) {
+        main.appendChild(modal())}
       navigateTo('/group-chat');
     });
 
