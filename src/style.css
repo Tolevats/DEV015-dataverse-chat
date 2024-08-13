@@ -85,6 +85,7 @@ label {
 
 }
 
+
 #buttonClear {
     justify-content: center;
     align-items: center;
@@ -330,6 +331,96 @@ h2[itemprop="title2 modal"] {
   text-align: center;
   margin-bottom: 20px;
 }
+
+/*AQUI VA PARA CODIGO DE chat individual*/
+
+.HomeContainer {
+  display: flex; 
+  gap: 10px; 
+  background-color: #1b485d; 
+  padding: 10px;
+  text-align: right;
+  font-family: "Gugi", sans-serif;
+  font-size: 20px;
+  color:#ffffff;
+  text-shadow: 0 0 15px #66c3ff;
+  letter-spacing: 1px; 
+  border: 2px solid rgba(102, 195, 255, 0.5);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  
+}
+
+.HomeContainer button{
+  background-color: transparent; 
+  border: 2px solid transparent; 
+  color: #fff; 
+  font-size: 20px; 
+  cursor: pointer; 
+}
+
+.DescriptionChat img {
+  max-width: 50%;
+  
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
+.box {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px; 
+  flex: 1; 
+}
+
+.DescriptionChat,
+.ChatContainer {
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+}
+
+section p[itemprop="description"] {
+  font-size: 16px; 
+  color: #000000; 
+  line-height: 1; 
+  padding: 0 10% 0 10%;
+  text-align: justify;
+  
+}
+
+.chatContainer {
+  display: flex; /* Alinea el input y el botón en fila */
+  gap: 10px; /* Espacio entre los elementos */
+  align-items: center; /* Alinear verticalmente */
+  margin-top: 20px; /* Espaciado superior */
+  border: 2px solid rgba(102, 195, 255, 0.5);
+}
+
+/* Estilos para el input de usuario */
+#input-user {
+  flex: 1; /* Input ocupa todo el espacio disponible */
+  padding: 10px; /* Espaciado interno */
+  border: 1px solid #ccc; /* Borde gris claro */
+  border-radius: 5px; /* Bordes redondeados */
+  font-size: 16px; /* Tamaño de fuente */
+}
+
+/* Estilos para el botón de enviar */
+#button-submit {
+  background-color: #007BFF; /* Color de fondo azul */
+  color: white; /* Color de texto blanco */
+  padding: 10px 20px; /* Espaciado interno */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cursor en forma de mano */
+}
+
+#button-submit:hover {
+  background-color: #0056b3; /* Cambiar color al pasar el ratón */
+}
+
+
 @media screen and (min-width: 621px) and (max-width: 1000px) {
     
   h2, h3 {
