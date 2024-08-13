@@ -1,32 +1,50 @@
 import { Header } from "../components/header.js";
-import { main } from "../components/main.js";
 import { Footer } from "../components/footer.js";
 import { navigateTo } from "../router.js";
+import dataset from "../data/dataset.js"; // Asegúrate de importar la data
 
-export const Chat =(item) => {
+export const Chat = () => {
   const viewEl = document.createElement('section');
-  viewEl.setAttribute("class","view");
-    
+  viewEl.setAttribute("class", "view");
+
   viewEl.appendChild(Header());
-  const mainEl = main ();
-  viewEl.appendChild(mainEl);
 
-  const CardChat = document.createElement('section');
-  CardChat.innerHTML = `
-  <section>
-    <button id="BACK">HOME</button>
-    <img src="${item.imageUrl}" alt="${item.name}" itemprop="image">
-    <p itemprop="description">${item.description}</p>
+  const urlParams = new URLSearchParams(window.location.search);
+  const itemId = urlParams.get('id'); // Obtener el ID del objeto desde la URL
 
-  </section>
-  `;
-  viewEl.appendChild(CardChat);
+  const selectedItem = dataset.find(item => item.id === itemId);
+
+  if (selectedItem) {
+    const CardChat = document.createElement('div');
+    CardChat.innerHTML = `
+      <section>
+        <div class="HomeContainer">
+          <button id="BACK">←</button>
+          <p>Volver a home</p>
+        </div>
+        
+        <section class=box>
+        <div class="DescriptionChat">
+          <img src="${selectedItem.imageUrl}" alt="${selectedItem.name}" itemprop="image">
+          <p itemprop="description">${selectedItem.description}</p>
+        </div>
+        <div class="ChatContainer">
+          <input type="text" id="input-user" placeholder="Interactua con el chat aqui">
+          <input type="submit" value="→" id="button-submit">
+        </div>
+        </section>
+      </section>
+    `;
+
+    viewEl.appendChild(CardChat);
+
+    const backButton = CardChat.querySelector('#BACK');
+    backButton.addEventListener('click', () => {
+      navigateTo("/"); // Navega a la página principal
+    });
+  }
+
   viewEl.appendChild(Footer());
 
-  const backButton = CardChat.querySelector('#BACK');
-  backButton.addEventListener('click', () => {
-    navigateTo("/"); // Navega a la página principal
-  });
-
   return viewEl;
-}
+};
