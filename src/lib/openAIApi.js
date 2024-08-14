@@ -1,47 +1,47 @@
 import { getApiKey } from './apiKey.js';
 
+// Obtén la clave API de la función getApiKey
 const OPENAI_API_KEY = getApiKey();
-console.log(OPENAI_API_KEY);
-export const communicateWithOpenAI = (messages) => {
-  return new Promise((resolve, reject) => { // retorna una nueva promesa
-    if (!OPENAI_API_KEY) { // si OPENAI_API_KEY no está definida
+//console.log(OPENAI_API_KEY);
+
+export const communicateWithOpenAI = (messageContent) => {
+  return new Promise((resolve, reject) => {
+    if (!OPENAI_API_KEY) {
       const error = new Error("No se ha ingresado contraseña de API");
       return reject(error);
     }
 
-    const url = "https://api.openai.com/v1/chat/completions"; // URL correcta de la API de OpenAI
+    const url = "https://api.openai.com/v1/chat/completions";
     const headers = {
       "Content-Type": "application/json",
       Authorization: `Bearer ${OPENAI_API_KEY}`,
     };
     const body = JSON.stringify({
-      messages: messages,
       model: "gpt-3.5-turbo",
+      messages: [
+        {
+          role: "user",
+          content: messageContent,
+        },
+      ],
     });
 
-    // HACER SOLICITUD
     fetch(url, {
       method: "POST",
       headers: headers,
       body: body,
     })
-    // MANEJAR LAS RESPUESTAS
       .then((response) => {
-        /* if (!response.ok) {
-          if (response.status === 401) {
-            throw new Error("Verificar clave API");
-          } else {
-            throw new Error("No se puede realizar la solicitud");
-          }
-        }*/
+        // Verifica si la respuesta es ok
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
         return response.json();
       })
-    // RESUELVE LA PROMESA
       .then((data) => {
-        console.log(data)
+        console.log(data);
         resolve(data);
       })
-    // MANEJO DE ERRORES
       .catch((error) => {
         console.error("Error al hacer la solicitud:", error);
         reject(error);
