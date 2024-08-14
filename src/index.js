@@ -8,7 +8,7 @@ import { setRootEl, setRoutes, onURLChange } from './router.js';
 const routes = {
   '/': Principal,
   '/error': Fail,
-  '/chat': Chat,
+  '/chat': Chat, 
   '/group-chat': chatGrupal,
 };
 
