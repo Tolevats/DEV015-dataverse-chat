@@ -51,15 +51,18 @@ export const Chat = () => {
     });
 
     buttonSubmit.addEventListener("click", () => {
-      communicateWithOpenAI(selectedItem.name, userInput.value) // Corregir `item.name` a `selectedItem.name`
-        .then((res) => res.json())
+      const userMessage = userInput.value;
+      communicateWithOpenAI(userMessage)
         .then((data) => {
+          console.log(data);
           responseTotal.innerHTML = `
-            <div class="answer">${userInput.value}</div>
-            <div class="AnswerChat">${data.choices[0].message.content}</div>
-          `;
-            
+              <div class="answer">${userInput.value}</div>
+              <div class="AnswerChat">${data.choices[0].message.content}</div>
+            `;
           userInput.value = ""; // Limpiar el campo de entrada después de enviar
+        })
+        .catch((error) => {
+          console.error("Error en la comunicación con OpenAI:", error);
         });
     });
   }
