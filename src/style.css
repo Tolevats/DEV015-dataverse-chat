@@ -419,6 +419,37 @@ section p[itemprop="description"] {
 #button-submit:hover {
   background-color: #0056b3; /* Cambiar color al pasar el ratón */
 }
+/*chat*/
+.chat-window {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  overflow-y: auto;
+  height: 300px;
+}
+
+.chat-message {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  max-width: 80%;
+}
+
+.user-message {
+  background-color: #e0f7fa;
+  align-self: flex-end;
+  text-align: right;
+}
+
+.ai-message {
+  background-color: #e8eaf6;
+  align-self: flex-start;
+  text-align: left;
+}
+
 
 
 @media screen and (min-width: 621px) and (max-width: 1000px) {

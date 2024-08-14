@@ -42,9 +42,10 @@ export const Chat = () => {
     const backButton = CardChat.querySelector('#BACK');
     const buttonSubmit = CardChat.querySelector('#buttonSubmit');
     const userInput = CardChat.querySelector('#input-user');
-    const responseTotal = document.createElement('div');
+    const chatWindow = document.createElement('div');
+    chatWindow.classList.add('chat-window'); // Contenedor para los mensajes de chat
 
-    viewEl.appendChild(responseTotal);
+    viewEl.appendChild(chatWindow);
 
     backButton.addEventListener('click', () => {
       navigateTo("/"); 
@@ -58,11 +59,24 @@ export const Chat = () => {
 
       communicateWithOpenAI(characterPrompt)
         .then((data) => {
-          responseTotal.innerHTML = `
-              <div class="answer">${userMessage}</div>
-              <div class="AnswerChat">${data.choices[0].message.content}</div>
-            `;
-          userInput.value = ""; // Limpiar el campo de entrada después de enviar
+          // Crear elementos para los mensajes del usuario y de la IA
+          const userMessageEl = document.createElement('div');
+          userMessageEl.classList.add('chat-message', 'user-message');
+          userMessageEl.innerText = userMessage;
+
+          const aiMessageEl = document.createElement('div');
+          aiMessageEl.classList.add('chat-message', 'ai-message');
+          aiMessageEl.innerText = data.choices[0].message.content;
+
+          // Añadir los mensajes al contenedor del chat
+          chatWindow.appendChild(userMessageEl);
+          chatWindow.appendChild(aiMessageEl);
+
+          // Desplazar el chat hacia abajo para ver el nuevo mensaje
+          chatWindow.scrollTop = chatWindow.scrollHeight;
+
+          // Limpiar el campo de entrada después de enviar
+          userInput.value = "";
         })
         .catch((error) => {
           console.error("Error en la comunicación con OpenAI:", error);
