@@ -1,7 +1,7 @@
 import { getApiKey } from './apiKey.js';
 
 const OPENAI_API_KEY = getApiKey();
-
+console.log(OPENAI_API_KEY);
 export const communicateWithOpenAI = (messages) => {
   return new Promise((resolve, reject) => { // retorna una nueva promesa
     if (!OPENAI_API_KEY) { // si OPENAI_API_KEY no está definida
