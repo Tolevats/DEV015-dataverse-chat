@@ -40,11 +40,11 @@ export const Chat = () => {
     viewEl.appendChild(CardChat);
 
     const backButton = CardChat.querySelector('#BACK');
-    const buttonSubmit = CardChat.querySelector('#buttonSubmit'); // Corregir la referencia al botón
-    const userInput = CardChat.querySelector('#input-user'); // Obtener la referencia al input
-    const responseTotal = document.createElement('div'); // Crear un contenedor para las respuestas
+    const buttonSubmit = CardChat.querySelector('#buttonSubmit');
+    const userInput = CardChat.querySelector('#input-user');
+    const responseTotal = document.createElement('div');
 
-    viewEl.appendChild(responseTotal); // Agregar el contenedor al DOM
+    viewEl.appendChild(responseTotal);
 
     backButton.addEventListener('click', () => {
       navigateTo("/"); 
@@ -52,11 +52,14 @@ export const Chat = () => {
 
     buttonSubmit.addEventListener("click", () => {
       const userMessage = userInput.value;
-      communicateWithOpenAI(userMessage)
+
+      // Crear un prompt personalizado usando los datos del personaje seleccionado
+      const characterPrompt = `You are now chatting with ${selectedItem.name}, a character known for being ${selectedItem.description}. They respond in a ${selectedItem.personality} manner. User says: "${userMessage}"`;
+
+      communicateWithOpenAI(characterPrompt)
         .then((data) => {
-          console.log(data);
           responseTotal.innerHTML = `
-              <div class="answer">${userInput.value}</div>
+              <div class="answer">${userMessage}</div>
               <div class="AnswerChat">${data.choices[0].message.content}</div>
             `;
           userInput.value = ""; // Limpiar el campo de entrada después de enviar
