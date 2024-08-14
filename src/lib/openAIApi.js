@@ -27,18 +27,19 @@ export const communicateWithOpenAI = (messages) => {
     })
     // MANEJAR LAS RESPUESTAS
       .then((response) => {
-        if (!response.ok) {
+        /* if (!response.ok) {
           if (response.status === 401) {
             throw new Error("Verificar clave API");
           } else {
             throw new Error("No se puede realizar la solicitud");
           }
-        }
+        }*/
         return response.json();
       })
     // RESUELVE LA PROMESA
       .then((data) => {
-        resolve(data.choices[0].message.content);
+        console.log(data)
+        resolve(data);
       })
     // MANEJO DE ERRORES
       .catch((error) => {

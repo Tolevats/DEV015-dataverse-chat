@@ -51,9 +51,10 @@ export const Chat = () => {
     });
 
     buttonSubmit.addEventListener("click", () => {
-      communicateWithOpenAI(selectedItem.name, userInput.value) // Corregir `item.name` a `selectedItem.name`
-        .then((res) => res.json())
+      communicateWithOpenAI(selectedItem.name, userInput.value) 
+      // .then((res) => res.json())
         .then((data) => {
+          console.log(data);
           responseTotal.innerHTML = `
             <div class="answer">${userInput.value}</div>
             <div class="AnswerChat">${data.choices[0].message.content}</div>
