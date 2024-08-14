@@ -18,6 +18,7 @@ export const Chat = () => {
   if (selectedItem) {
     const CardChat = document.createElement('div');
     CardChat.innerHTML = `
+    <link rel="stylesheet" href="assets/CSS/styleChat.css">
       <section>
         <div class="HomeContainer">
           <button id="BACK">←</button>
@@ -30,10 +31,10 @@ export const Chat = () => {
             <p itemprop="description">${selectedItem.description}</p>
           </div>
           <div class="ChatContainer">
+            <div id="response-container"></div> <!-- el contenedor para las respuestas -->
             <input type="text" id="input-user" placeholder="Interactúa con la serie aquí">
             <input type="submit" value="→" id="buttonSubmit">
           </div>
-          <div id="response-container"></div>
         </section>
       </section>
     `;
@@ -43,7 +44,7 @@ export const Chat = () => {
     const backButton = CardChat.querySelector('#BACK');
     const buttonSubmit = CardChat.querySelector('#buttonSubmit'); // Corregir la referencia al botón
     const userInput = CardChat.querySelector('#input-user'); // Obtener la referencia al input
-    const responseContainer = CardChat.querySelector('#response-container');
+    const responseContainer = CardChat.querySelector('#response-container'); //contenedor para las respuestas
 
     backButton.addEventListener('click', () => {
       navigateTo("/"); 
@@ -54,15 +55,16 @@ export const Chat = () => {
       if (userMessage.trim() !== "") {
         communicateWithOpenAI(userMessage)
           .then((data) => {
-            console.log(data);
+            //console.log(data);
             responseContainer.innerHTML = `
               <div class="answer">${userMessage}</div>
               <div class="AnswerChat">${data.choices[0].message.content}</div>
             `;
+            
             userInput.value = ""; // Limpiar el campo de entrada después de enviar
           })
           .catch((error) => {
-            console.error("Error en la comunicación con OpenAI:", error);
+            //console.error("Error en la comunicación con OpenAI:", error);
             responseContainer.innerHTML += `
               <div class="error">Hubo un problema al procesar tu solicitud. Por favor, intenta nuevamente.</div>
             `;
