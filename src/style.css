@@ -35,7 +35,7 @@ body {
 }
 
 .description-container {
-  position: relative; /* Contenedor relativo para posicionar el pseudo-elemento ::before */
+  position: relative; 
   flex: 1;
   max-width: 100%;
   max-height: 400px;
@@ -44,23 +44,23 @@ body {
   background-image: url(assets/img/SFD.png); 
   background-size: cover;
   box-shadow: 0 0 10px #66c3ff;
-  overflow: hidden; /* Asegura que la superposición no se salga del contenedor */
+  overflow: hidden; 
 }
 
 .description-container::before {
-  content: ""; /* se utiliza junto a peseudo.elemento ::before y en esta caso para aplicar estilos sin añadir contenido visible */
-  position: absolute; /* Posición absoluta para abarcar todo el contenedor */
+  content: ""; 
+  position: absolute; 
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 245, 245, 0.3); /* Superposición clara con opacidad del 20% */
-  z-index: 1; /* Coloca la superposición debajo del contenido */
+  background: rgba(255, 245, 245, 0.3); 
+  z-index: 1; 
 }
 
 h2, h3 {
   position: relative;
-  z-index: 2; /* Coloca el texto sobre la superposición */
+  z-index: 2; 
   color: #000000;
 }
 
@@ -217,6 +217,8 @@ footer {
     font-size: 12px;
     color: #FCFFE7;
     padding: 20px 30px;
+    border: 1px solid #1f5a75;
+   box-shadow: #2b6e8f;
 }
 select {
     font-family: "Gugi", sans-serif;
@@ -276,7 +278,7 @@ select {
   z-index: 1000;
 }
 #modal-input {
-  width: 100%; /* Asegurar que el input sea más largo */
+  width: 100%; 
   padding: 10px;
   margin: 10px 0;
   font-size: 16px;
@@ -285,7 +287,7 @@ select {
 }
 
 .button-modal {
-  width: 100%; /* Asegurar que el botón sea más largo */
+  width: 100%; 
   padding: 15px;
   font-size: 16px;
   margin: 10px 0;
@@ -315,7 +317,7 @@ select {
 }
 
 #modal-section {
-  z-index: 500; /* z-index más bajo para modal API key*/
+  z-index: 500; 
   padding-top: 40px;
 }
 
@@ -347,7 +349,7 @@ h2[itemprop="title2 modal"] {
   letter-spacing: 1px; 
   border: 2px solid rgba(102, 195, 255, 0.5);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  
+  max-width: 100% ;
 }
 
 .HomeContainer button{
@@ -359,26 +361,25 @@ h2[itemprop="title2 modal"] {
 }
 
 .DescriptionChat img {
-  max-width: 50%;
-  
+  width: 50%;
+  height: 50%;
   border-radius: 8px;
-  display: block;
-  margin: 0 auto;
+  padding: 0% 0 10% 20%;
+  border-right: 0%;
+  margin-right: 0%;
 }
-.box {
+#box {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 20px; 
-  flex: 1; 
+  flex-direction: column; 
+}
+.DescriptionChat{
+  max-width: 50%;
+  background-color: #ffffff;
+  border: 1px solid #1b485d;
+  height: 75vh;
+  
 }
 
-.DescriptionChat,
-.ChatContainer {
-  flex: 1; 
-  display: flex;
-  flex-direction: column;
-}
 
 section p[itemprop="description"] {
   font-size: 16px; 
@@ -388,37 +389,83 @@ section p[itemprop="description"] {
   text-align: justify;
   
 }
-
-.chatContainer {
-  display: flex; /* Alinea el input y el botón en fila */
-  gap: 10px; /* Espacio entre los elementos */
-  align-items: center; /* Alinear verticalmente */
-  margin-top: 20px; /* Espaciado superior */
-  border: 2px solid rgba(102, 195, 255, 0.5);
-}
-
-/* Estilos para el input de usuario */
 #input-user {
-  flex: 1; /* Input ocupa todo el espacio disponible */
+  width: 85%; 
+  /*right: 8%;
+  bottom: 5%;*/
   padding: 10px; /* Espaciado interno */
   border: 1px solid #ccc; /* Borde gris claro */
   border-radius: 5px; /* Bordes redondeados */
   font-size: 16px; /* Tamaño de fuente */
+  position: absolute;
 }
-
-/* Estilos para el botón de enviar */
-#button-submit {
-  background-color: #007BFF; /* Color de fondo azul */
-  color: white; /* Color de texto blanco */
-  padding: 10px 20px; /* Espaciado interno */
-  border: none; /* Sin borde */
-  border-radius: 5px; /* Bordes redondeados */
+#buttonSubmit {
+  background-color: #ffffff; 
+  color: rgb(131, 123, 123); 
+  padding: 5px 10px; 
+  border: none; 
+  border-radius: 50px; 
   cursor: pointer; /* Cursor en forma de mano */
+  position: absolute;
+  top: 50%; 
+  right: 10px;
+  margin-top: 3%;
+
 }
 
 #button-submit:hover {
   background-color: #0056b3; /* Cambiar color al pasar el ratón */
 }
+
+div.chat-container {
+  background: #71a7caa9;
+  width: 50%;
+  position: absolute;
+  right: 0;
+  bottom: 0%; 
+  border: 1px solid #1b485d;
+  margin-bottom: 10%;
+}
+div.start-chat {
+  background: #71a7caa9;
+  width: 50%;
+  position: absolute;
+  right: 0;
+  bottom: 1%; 
+  margin-bottom: 7%;
+}
+
+/*#box.chatView {
+  position: absolute;
+  right: 10%;
+  width: 50%;
+  overflow-y: auto;
+  margin: 10px;
+  padding: 10px;
+  background-color: #68b0e0;
+
+}*/
+
+.user-message {
+  background-color: #e0f7fa;
+  align-self: flex-end;
+  text-align: right;
+  border-radius: 8px;
+  max-width: 80%;
+  margin-bottom: 3%;
+  margin-left: auto; 
+  
+}
+
+.ai-message {
+  background-color: #e8eaf6;
+  align-self: flex-start;
+  text-align: left;
+  border-radius: 8px;
+  max-width: 80%;
+  margin-bottom: 3%;
+}
+
 
 
 @media screen and (min-width: 621px) and (max-width: 1000px) {
