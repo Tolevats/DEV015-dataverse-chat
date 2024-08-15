@@ -54,8 +54,7 @@ export const Chat = () => {
     buttonSubmit.addEventListener("click", () => {
       const userMessage = userInput.value;
 
-      // Crear un prompt personalizado usando los datos del personaje seleccionado
-      const characterPrompt = `You are now chatting with ${selectedItem.name}, a character known for being ${selectedItem.description}. They respond in a ${selectedItem.personality} manner. User says: "${userMessage}"`;
+      const characterPrompt = `Ahora estas chateando con ${selectedItem.name}, Un personaje conocido por ser ${selectedItem.description}. Ellos responden en una ${selectedItem.personality} manner. Usuario dice: "${userMessage}"`;
 
       communicateWithOpenAI(characterPrompt)
         .then((data) => {
