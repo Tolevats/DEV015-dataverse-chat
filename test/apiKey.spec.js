@@ -1,6 +1,6 @@
 import { getApiKey, setApiKey } from "../src/lib/apiKey.js";
 describe("getApiKey", () => {
-  it("debería devolver el valor de la API Key", () => {
+  it("Devuelve el valor de la API Key", () => {
     const apiKeyValue = "minhaAPIKey";
     localStorage.setItem("apiKeyChat", apiKeyValue);
 
@@ -9,7 +9,7 @@ describe("getApiKey", () => {
 });
 
 describe("setApiKey", () => {
-  it("debería establecer correctamente la API Key", () => {
+  it("Establece correctamente la API Key", () => {
     const apiKeyValue = "novaAPIKey";
     setApiKey(apiKeyValue);
 
