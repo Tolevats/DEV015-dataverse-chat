@@ -41,7 +41,9 @@ export const communicateWithOpenAI = (selectedItem,userMessage) => {
       return data;
     })
     .catch((error) => {
-      console.error("Error al hacer la solicitud:", error);
+      // eslint-disable-next-line no-console
+      console.error("Error al hacer la solicitud:", error);// eslint-disable-next-line no-undef
+
       return error
     });
 };
