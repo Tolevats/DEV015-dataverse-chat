@@ -85,6 +85,7 @@ export function Principal(props) {
 
     resultsContainer.appendChild(renderItems(dataset));
   } else {
+    // eslint-disable-next-line no-console
     console.error('Uno o más elementos no se pudieron seleccionar:', {
       platformSelect,
       sortBySelect,

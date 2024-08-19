@@ -27,7 +27,7 @@ export const renderItems = (data) => {
     ulElement.appendChild(liElement);
     //para navegar a la vista "chat" al hacer clic
     liElement.addEventListener('click', () => {
-      console.log(item.id)
+      //console.log(item.id)
       navigateTo("/chat", {id:item.id});
     }); 
   });
