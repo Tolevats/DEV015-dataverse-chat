@@ -154,7 +154,10 @@ export const Chat = () => {
           userInput.value = "";
         })
         .catch((error) => {
-          console.error("Error en la comunicación con OpenAI:", error);
+          // eslint-disable-next-line no-console
+          console.error("Error en la comunicación con OpenAI:", error);// eslint-disable-next-line no-undef
+
+
         });
     });
   }
