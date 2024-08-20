@@ -28,6 +28,9 @@ export const Chat = () => {
           <div class="DescriptionChat">
             <img src="${selectedItem.imageUrl}" alt="${selectedItem.name}" itemprop="image">
             <p itemprop="description">${selectedItem.description}</p>
+            <p itemprop="containsSeason">Plataforma: ${selectedItem.facts.streamingPlatform}</h3>
+            <p itemprop="year">Transmisión: ${selectedItem.facts.yearOfRelease} - ${selectedItem.facts.yearOfEnd}</p>
+            <p itemprop="rating">Rating: ${selectedItem.facts.averageRating} /10<span class="star">&#11088;</span></p>
           </div>
           
             <input type="text" id="input-user" placeholder="Interactúa con la serie aquí">
