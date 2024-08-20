@@ -96,22 +96,22 @@ export const Chat = () => {
   if (selectedItem) {
     const CardChat = document.createElement('div');
     CardChat.innerHTML = `
-      <section>
+      <section id=base>
         <div class="HomeContainer">
           <button id="BACK">←</button>
           <p>Volver a home</p>
         </div>
         
-        <section class="box">
+        
           <div class="DescriptionChat">
             <img src="${selectedItem.imageUrl}" alt="${selectedItem.name}" itemprop="image">
             <p itemprop="description">${selectedItem.description}</p>
           </div>
-          <div class="ChatContainer">
+          
             <input type="text" id="input-user" placeholder="Interactua con el chat aqui">
             <input type="submit" value="→" id="buttonSubmit">
-          </div>
-        </section>
+      
+        
       </section>
     `;
 
@@ -155,7 +155,7 @@ export const Chat = () => {
         })
         .catch((error) => {
           // eslint-disable-next-line no-console
-          console.error("Error en la comunicación con OpenAI:", error);// eslint-disable-next-line no-undef
+          console.error("Error en la comunicación con OpenAI:", error);
 
 
         });

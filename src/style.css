@@ -360,44 +360,64 @@ h2[itemprop="title2 modal"] {
   cursor: pointer; 
 }
 
+
 .DescriptionChat img {
-  width: 50%;
-  height: 50%;
+  width: 40%;
+  height: 45%;
   border-radius: 8px;
-  padding: 0% 0 10% 20%;
-  border-right: 0%;
-  margin-right: 0%;
+  padding: 2%;
+  position: absolute;
+  left: 5%;
+  
 }
-#box {
-  display: flex;
-  flex-direction: column; 
+#base
+{
+  background-color: #68b0e0;
 }
-.DescriptionChat{
+.DescriptionChat {
+  flex: 1;
   max-width: 50%;
   background-color: #ffffff;
   border: 1px solid #1b485d;
   height: 75vh;
+
   
+}
+div.chat-window {
+  flex:1;
+  max-width: 50%;
+  width: 100%;
+  position: absolute;
+  right: 0%;
+  bottom: 10%;
+  height: 75vh;
+  overflow-y: auto;
 }
 
 
+
+
+
 section p[itemprop="description"] {
-  font-size: 16px; 
+  font-size: 1vw; 
   color: #000000; 
   line-height: 1; 
   padding: 0 10% 0 10%;
   text-align: justify;
+  margin-top: 75%;
   
 }
 #input-user {
-  width: 85%; 
-  /*right: 8%;
-  bottom: 5%;*/
-  padding: 10px; /* Espaciado interno */
-  border: 1px solid #ccc; /* Borde gris claro */
-  border-radius: 5px; /* Bordes redondeados */
-  font-size: 16px; /* Tamaño de fuente */
+  width: 42%; 
+  right: 6%;
+  bottom: 16%;
+  padding: 10px; 
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  font-size: 16px; 
   position: absolute;
+  z-index: 2;
+  
 }
 #buttonSubmit {
   background-color: #ffffff; 
@@ -405,59 +425,35 @@ section p[itemprop="description"] {
   padding: 5px 10px; 
   border: none; 
   border-radius: 50px; 
-  cursor: pointer; /* Cursor en forma de mano */
+  cursor: pointer; 
   position: absolute;
-  top: 50%; 
-  right: 10px;
-  margin-top: 3%;
+  bottom: 16%;
+  right: 2%;
+  width: 3%;
+  z-index: 2;
+
 
 }
 
-#button-submit:hover {
-  background-color: #0056b3; /* Cambiar color al pasar el ratón */
-}
 
-div.chat-container {
-  background: #71a7caa9;
-  width: 50%;
-  position: absolute;
-  right: 0;
-  bottom: 0%; 
-  border: 1px solid #1b485d;
-  margin-bottom: 10%;
-}
-div.start-chat {
-  background: #71a7caa9;
-  width: 50%;
-  position: absolute;
-  right: 0;
-  bottom: 1%; 
-  margin-bottom: 7%;
-}
 
-/*#box.chatView {
-  position: absolute;
-  right: 10%;
-  width: 50%;
-  overflow-y: auto;
-  margin: 10px;
-  padding: 10px;
-  background-color: #68b0e0;
-
+/* {
+  border: 2px solid red;
 }*/
 
-.user-message {
+
+div.chat-message.user-message {
   background-color: #e0f7fa;
   align-self: flex-end;
   text-align: right;
   border-radius: 8px;
-  max-width: 80%;
+  max-width: 47%;
   margin-bottom: 3%;
   margin-left: auto; 
   
 }
 
-.ai-message {
+div.chat-message.ai-message {
   background-color: #e8eaf6;
   align-self: flex-start;
   text-align: left;
