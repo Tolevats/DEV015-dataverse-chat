@@ -32,11 +32,7 @@ export const Chat = () => {
             <p itemprop="year">Transmisión: ${selectedItem.facts.yearOfRelease} - ${selectedItem.facts.yearOfEnd}</p>
             <p itemprop="rating">Rating: ${selectedItem.facts.averageRating} /10<span class="star">&#11088;</span></p>
        </div>
-           <div class="SendChat">
-        
-            <input type="text" id="input-user" placeholder="Interactúa con la serie aquí">
-            <input type="submit" value="→" id="buttonSubmit">
-           </div>
+
       
         
       </section>
@@ -44,9 +40,6 @@ export const Chat = () => {
 
     viewEl.appendChild(CardChat);
 
-    const backButton = CardChat.querySelector('#BACK');
-    const buttonSubmit = CardChat.querySelector('#buttonSubmit');
-    const userInput = CardChat.querySelector('#input-user');
     const chatWindow = document.createElement('div');
     chatWindow.classList.add('chat-window'); 
     chatWindow.innerHTML=`
@@ -54,9 +47,17 @@ export const Chat = () => {
     <img class="ImagenChat" src="${selectedItem.imageUrl}">
       <p itemprop"PersonajeChat" class="PersonajeChat">    ${selectedItem.name} </p>
       <p itemprop"En linea" class="status"><Br>En Linea</p>
-   </div>`
+   </div>
+   <div class="SendChat">
+        
+   <input type="text" id="input-user" placeholder="Interactúa con la serie aquí">
+   <input type="submit" value="→" id="buttonSubmit">
+  </div>`
 
     viewEl.appendChild(chatWindow);
+    const backButton = CardChat.querySelector('#BACK');
+    const buttonSubmit = chatWindow.querySelector('#buttonSubmit');
+    const userInput = chatWindow.querySelector('#input-user');
 
     backButton.addEventListener('click', () => {
       navigateTo("/"); 
