@@ -2,60 +2,23 @@
 
 ## Índice
 
-* [1. Preámbulo](#1-preámbulo)
-* [2. Resumen del proyecto](#2-resumen-del-proyecto)
-* [3. Consideraciones generales](#3-consideraciones-generales)
-* [4. Funcionalidades](#4-funcionalidades)
-* [5. Consideraciones técnicas](#5-consideraciones-técnicas)
-* [6. Hitos](#6-hitos)
-* [7. Criterios de aceptación mínimos del proyecto](#7-criterios-de-aceptación-mínimos-del-proyecto)
-* [8. Objetivos de aprendizaje](#8-objetivos-de-aprendizaje)
-* [9. Pistas, tips y lecturas complementarias](#9-pistas-tips-y-lecturas-complementarias)
-* [10. Consideraciones para pedir tu Project Feedback](#10-consideraciones-para-pedir-tu-project-feedback)
+* [1. Definición del producto](#1-Definición-del-producto)
+* [2. Historias de usuaria](#2-Historias-de-usuaria)
+* [3. Prototipo de baja fidelidad como solución](#3-Prototipo-de-baja-fidelidad-como-solución)
+* [4. Interfaz de usuaria](#4-Interfaz-de-usuaria)
+* [5. Problemas detectables através de test de usabilidad](#5-Problemas-detectables-através-de-test-de-usabilidad)
 
 ***
 
-## 1. Preámbulo
+## 1. Definición del producto
 
-En nuestro día a día, las aplicaciones web son como amigas
-inseparables. Desde las redes sociales hasta las herramientas de
-trabajo, las usamos todo el tiempo. Pero lo que hace que este
-momento sea realmente especial es que estas aplicaciones nos pueden
-abrir una puerta a algo asombroso: la interacción con inteligencia
-artificial.
 
-¿Qué tal si pudiéramos conversar con alguien que vivió hace más de
-cien años o incluso con los personajes de nuestras series y
-películas favoritas o con entidades que normalmente no pueden hablar
-como por ejemplo planetas o animales? La inteligencia artificial nos
-puede ayudar a entender el pasado y a conectarnos con figuras
-históricas, así como a sumergirnos en mundos ficticios.
 
-![Preview app](https://github-production-user-asset-6210df.s3.amazonaws.com/123121338/271433237-2bd1477b-15ef-49d4-9fcb-226b3263c46a.png)
 
-## 2. Resumen del proyecto
 
-En este proyecto convertirás la aplicación desarrollada
-en Dataverse en una
-[Single Page Application (SPA)](https://es.wikipedia.org/wiki/Single-page_application),
-manteniendo las funcionalidades de visualizar, filtrar, ordenar y
-calcular alguna estadística, adicionando una nueva vista para
-consultar información detallada de cada personaje/entidad y agregando
-la posibilidad de interactuar con un personaje/entidad o todos ellos
-a través de un sistema de chat impulsado por la
-[API de OpenAI](https://openai.com/product).
+## 2. Historias de usuaria
 
-### Los objetivos generales de este proyecto son los siguientes
-
-* Desarrollar una [Single Page Application (SPA)](https://es.wikipedia.org/wiki/Single-page_application)
-* Aplicar los conceptos de responsividad en el desarrollo de las vistas
-* Implementar un router para la navegación entre las diferentes
-vistas de la aplicación
-* Integrar una API externa
-* Entender la asincronía en JavaScript
-* Crear una suite de pruebas unitarias que permitan testear código asíncrono
-
-## 3. Consideraciones generales
+## 3. Prototipo de baja fidelidad como solución
 
 * Este proyecto se debe resolver en duplas.
 
