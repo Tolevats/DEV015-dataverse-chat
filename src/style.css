@@ -408,7 +408,7 @@ div.chat-window {
   flex-direction: column;
   max-width: 50%;
   width: 100%;
-  min-height: 65vh;
+  min-height: 80vh;
   max-height: 89%;
   height: 90%;
   overflow-y: auto;
@@ -416,7 +416,7 @@ div.chat-window {
   z-index: 1;
   margin-left: 50%;
   position: absolute;
-  top: 35%;
+  top: 20%;
 }
 
 
@@ -478,10 +478,6 @@ section p[itemprop="description"] {
 .status{
   margin-left: 14%;
   font-size: 13px;
-  
-  
-  justify-content: flex-start;
-  align-items: flex-end; 
 
 }
 
@@ -499,16 +495,15 @@ div.HeaderChat {
 }
 
 .SendChat{
-
   max-width: 100%;
   width: 100%;
-  position: absolute;
   display: flex;
   flex-direction: row;
-  margin-left: 0%;
-  margin-top: 100%;
   z-index: 2;
   background-color: #66c3ff;
+  position: sticky;
+  bottom: 0;
+
 }
 
 div.chat-message.user-message {
@@ -518,7 +513,7 @@ div.chat-message.user-message {
   border-radius: 8px;
   max-width: 47%;
   margin-bottom: 3%;
-  margin-left: auto; 
+  margin-left: 2%; 
   padding: 2%;
   
 }
