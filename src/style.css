@@ -214,12 +214,17 @@ li {
 footer {
     font-family: "Atomic Age", system-ui;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 0.8em;
     color: #FCFFE7;
     padding: 20px 30px;
     border: 1px solid #1f5a75;
-   box-shadow: #2b6e8f;
+    box-shadow: #2b6e8f;
+    margin-top: auto;  /* Empuja el footer al fondo de la página */
+    position: static; /* Esto asegura que el footer se renderice después del contenido */
+    width: 100%;
+    text-align: center;
 }
+
 select {
     font-family: "Gugi", sans-serif;
     font-size: 16px; 
@@ -333,20 +338,22 @@ h2[itemprop="title2 modal"] {
   text-align: center;
   margin-bottom: 20px;
 }
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  box-sizing: border-box;
+
+/*Estilo chat individual*/
+
+.view { /*permite que el footer se mantenga bien abajo y no afecte el resto de los elementos*/
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
-/*AQUI VA PARA CODIGO DE chat individual*/
 
 .HomeContainer {
   display: flex; 
   gap: 10px; 
   background-color: #1b485d; 
   padding: 10px;
-  text-align: right;
+/*   text-align: right;
+  align-items: center; */
   font-family: "Gugi", sans-serif;
   font-size: 20px;
   color:#ffffff;
@@ -365,31 +372,39 @@ body, html {
   cursor: pointer; 
 }
 
-
-.DescriptionChat img {
-  width: 40%;
-  height: 45%;
-  border-radius: 8px;
-  padding: 2%;
-  position: absolute;
-  left: 5%;
-  
-}
-#base
-{
-  background-color: #68b0e0;
-}
 .DescriptionChat {
-  flex: 1;
+/*   flex: 1; */
+  display: flex;
   max-width: 50%;
   background-color: #ffffff;
   border: 1px solid #1b485d;
-  height: 75vh;
-  border: 2px solid red;
-  margin-top: 0%;
-
-  
+  min-height: 90vh;
+ flex-direction: column;
+ align-items: center;
+ text-align: center;
 }
+
+.DescriptionChat img {
+  padding: 2%;
+  max-width: 100%;
+  height: auto; /* Mantiene la proporción de la imagen */
+  max-height: 950px;
+  margin-bottom: 0px;
+}
+
+.DescriptionChat p {
+  width: 80%; /* Limita el ancho del texto para evitar que se salga del contenedor */
+  margin: 20px auto; /* Centra el texto */
+  font-size: 1.2vw;
+  line-height: 1.5;
+  text-align: left;
+/* word-wrap: break-word;  *//* Asegura que el texto largo se ajuste */
+}
+
+#base {
+  background-color: #68b0e0;
+}
+
 div.chat-window {
   flex:1;
   max-width: 50%;
@@ -401,26 +416,7 @@ div.chat-window {
   overflow-y: auto;
   padding: 2%;
 }
-img.ImagenChat {
-   width: 8%;
-   height: 70%;
-   border-radius: 50%;
-   margin-top: 1%;
-   margin-left: 3%;
-  
 
-
-}
-
-section p[itemprop="description"] {
-  font-size: 1vw; 
-  color: #000000; 
-  line-height: 1; 
-  padding: 0 10% 0 10%;
-  text-align: justify;
-  margin-top: 75%;
-  
-}
 #input-user {
   width: 42%; 
   right: 6%;
@@ -448,6 +444,7 @@ section p[itemprop="description"] {
 
 
 }
+
 .PersonajeChat{
   margin-left:14%;
   
@@ -464,9 +461,11 @@ section p[itemprop="description"] {
 }
 
 
-/* {%
+
+/* {
   border: 2px solid red;
 }*/
+
 div.HeaderChat {
   
   max-width: 50%;
