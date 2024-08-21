@@ -19,22 +19,20 @@ export const Chat = () => {
     const CardChat = document.createElement('div');
     CardChat.innerHTML = `
       <section id=base>
+
         <div class="HomeContainer">
           <button id="BACK">←</button>
           <p>Volver a home</p>
         </div>
         
-        
-          <div class="DescriptionChat">
-            <img src="${selectedItem.imageUrl}" alt="${selectedItem.name}" itemprop="image">
-            <p itemprop="description">${selectedItem.description}</p>
-            <p itemprop="containsSeason">Plataforma: ${selectedItem.facts.streamingPlatform}</h3>
+       <div class="DescriptionChat">
+            <img class="imagenCard" src="${selectedItem.imageUrl}" alt="${selectedItem.name}" itemprop="image">
+            <p itemprop="description" class="descriptionCard">${selectedItem.description}</p>
+            <p itemprop="containsSeason" class="facts">Plataforma: ${selectedItem.facts.streamingPlatform}</p>
             <p itemprop="year">Transmisión: ${selectedItem.facts.yearOfRelease} - ${selectedItem.facts.yearOfEnd}</p>
             <p itemprop="rating">Rating: ${selectedItem.facts.averageRating} /10<span class="star">&#11088;</span></p>
-          </div>
-          
-            <input type="text" id="input-user" placeholder="Interactúa con la serie aquí">
-            <input type="submit" value="→" id="buttonSubmit">
+       </div>
+
       
         
       </section>
@@ -42,13 +40,24 @@ export const Chat = () => {
 
     viewEl.appendChild(CardChat);
 
-    const backButton = CardChat.querySelector('#BACK');
-    const buttonSubmit = CardChat.querySelector('#buttonSubmit');
-    const userInput = CardChat.querySelector('#input-user');
     const chatWindow = document.createElement('div');
-    chatWindow.classList.add('chat-window'); // Contenedor para los mensajes de chat
+    chatWindow.classList.add('chat-window'); 
+    chatWindow.innerHTML=`
+    <div class="HeaderChat">
+    <img class="ImagenChat" src="${selectedItem.imageUrl}">
+      <p itemprop"PersonajeChat" class="PersonajeChat">    ${selectedItem.name} </p>
+      <p itemprop"En linea" class="status"><Br>En Linea</p>
+   </div>
+   <div class="SendChat">
+        
+   <input type="text" id="input-user" placeholder="Interactúa con la serie aquí">
+   <input type="submit" value="→" id="buttonSubmit">
+  </div>`
 
     viewEl.appendChild(chatWindow);
+    const backButton = CardChat.querySelector('#BACK');
+    const buttonSubmit = chatWindow.querySelector('#buttonSubmit');
+    const userInput = chatWindow.querySelector('#input-user');
 
     backButton.addEventListener('click', () => {
       navigateTo("/"); 
@@ -59,7 +68,7 @@ export const Chat = () => {
 
       communicateWithOpenAI(selectedItem, userMessage)
         .then((data) => {
-          // Crear elementos para los mensajes del usuario y de la IA
+          
           const userMessageEl = document.createElement('div');
           userMessageEl.classList.add('chat-message', 'user-message');
           userMessageEl.innerText = userMessage;
@@ -68,14 +77,11 @@ export const Chat = () => {
           aiMessageEl.classList.add('chat-message', 'ai-message');
           aiMessageEl.innerText = data.choices[0].message.content;
 
-          // Añadir los mensajes al contenedor del chat
           chatWindow.appendChild(userMessageEl);
           chatWindow.appendChild(aiMessageEl);
 
-          // Desplazar el chat hacia abajo para ver el nuevo mensaje
           chatWindow.scrollTop = chatWindow.scrollHeight;
 
-          // Limpiar el campo de entrada después de enviar
           userInput.value = "";
         })
         .catch((error) => {
