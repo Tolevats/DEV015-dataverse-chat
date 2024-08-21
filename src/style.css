@@ -333,7 +333,12 @@ h2[itemprop="title2 modal"] {
   text-align: center;
   margin-bottom: 20px;
 }
-
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  box-sizing: border-box;
+}
 /*AQUI VA PARA CODIGO DE chat individual*/
 
 .HomeContainer {
@@ -380,6 +385,8 @@ h2[itemprop="title2 modal"] {
   background-color: #ffffff;
   border: 1px solid #1b485d;
   height: 75vh;
+  border: 2px solid red;
+  margin-top: 0%;
 
   
 }
@@ -389,14 +396,21 @@ div.chat-window {
   width: 100%;
   position: absolute;
   right: 0%;
-  bottom: 10%;
+  top:20%;
   height: 75vh;
   overflow-y: auto;
+  padding: 2%;
 }
+img.ImagenChat {
+   width: 8%;
+   height: 70%;
+   border-radius: 50%;
+   margin-top: 1%;
+   margin-left: 3%;
+  
 
 
-
-
+}
 
 section p[itemprop="description"] {
   font-size: 1vw; 
@@ -434,32 +448,60 @@ section p[itemprop="description"] {
 
 
 }
+.PersonajeChat{
+  margin-left:14%;
+  
+  margin-top: -7%;
+  font-weight: bold;
+}
+.status{
+  margin-left: 14%;
+  font-size: 13px;
+  margin-top: -1%;
+  text-align: left;
+  
+
+}
 
 
-
-/* {
+/* {%
   border: 2px solid red;
 }*/
-
+div.HeaderChat {
+  
+  max-width: 50%;
+  max-height: 15%;
+  width: 100%;
+  height: 8%;
+  position: absolute;
+  right: 0%;
+  display: flex;
+  background-color: rgb(238, 233, 228);
+  flex-direction: column;
+  
+  
+}
 
 div.chat-message.user-message {
-  background-color: #e0f7fa;
+  background-color: #ffffff;
   align-self: flex-end;
-  text-align: right;
+  text-align: left;
   border-radius: 8px;
   max-width: 47%;
   margin-bottom: 3%;
   margin-left: auto; 
+  padding: 2%;
   
 }
 
 div.chat-message.ai-message {
-  background-color: #e8eaf6;
+  background-color: #d8d8d8;
   align-self: flex-start;
   text-align: left;
   border-radius: 8px;
   max-width: 80%;
   margin-bottom: 3%;
+  padding: 2%;
 }
 
 

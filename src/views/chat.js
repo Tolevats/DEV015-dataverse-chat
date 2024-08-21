@@ -97,18 +97,25 @@ export const Chat = () => {
     const CardChat = document.createElement('div');
     CardChat.innerHTML = `
       <section id=base>
+      
         <div class="HomeContainer">
           <button id="BACK">←</button>
           <p>Volver a home</p>
         </div>
         
+        <div class="HeaderChat">
+        <img class=ImagenChat src="${selectedItem.imageUrl}">
+          <p itemprop"PersonajeChat" class="PersonajeChat">    ${selectedItem.name} </p>
+          <p itemprop"En linea" class="status"><Br>En Linea</p>
+          </p>
+        </div>
         
           <div class="DescriptionChat">
             <img src="${selectedItem.imageUrl}" alt="${selectedItem.name}" itemprop="image">
             <p itemprop="description">${selectedItem.description}</p>
           </div>
           
-            <input type="text" id="input-user" placeholder="Interactua con el chat aqui">
+            <input type="text" id="input-user" placeholder="">
             <input type="submit" value="→" id="buttonSubmit">
       
         
