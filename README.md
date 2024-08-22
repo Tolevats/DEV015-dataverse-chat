@@ -32,7 +32,7 @@ Sci-fi Data ha sido creada para visualizar series de ciencia ficción populares,
  * **Para** _sumar un nuevo dato a mi conocimiento de series sci-fi_
 5. Conversación con series seleccionadas mediante despliegue de chat.
  * **Como** _fan de la ciencia ficción_
- * **Quiero** _obtener más información acerca mis series favoritas_
+ * **Quiero** _obtener más información acerca de mis series favoritas_
  * **Para** _entablar una conversación real sobre lo acontecido en las series_
 
 ## 3. Prototipo de baja fidelidad como solución
