@@ -36,7 +36,8 @@ Sci-fi Data ha sido creada para visualizar series de ciencia ficción populares,
  * **Para** _entablar una conversación real sobre lo acontecido en las series_
 
 ## 3. Prototipo de baja fidelidad como solución
-Visualizamos la manera en la que debía verse y responder el chat individual y nos plantemaos el siguiente ejemplo:
+Visualizamos la manera en la que debía verse y responder el chat individual y nos planteamos el siguiente ejemplo:
+<br>
 ![prototipo](src/assets/img/baja%20fidelidad%201.jpg)
 ![prototipo](src/assets/img/baja%20fiedelidad%202.jpg)
 
