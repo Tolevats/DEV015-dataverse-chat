@@ -30,10 +30,10 @@ Sci-fi Data ha sido creada para visualizar series de ciencia ficción populares,
  * **Como** _fan de la ciencia ficción_
  * **Quiero** _saber un cálculo estadístico de mi género televisivo favorito_
  * **Para** _sumar un nuevo dato a mi conocimiento de series sci-fi_
-5. Conversación mediante página de chat con serie seleccionada.
+5. Conversación con series seleccionadas mediante despliegue de chat.
  * **Como** _fan de la ciencia ficción_
- * **Quiero** _Obtener más información acerca mis series favoritas_
- * **Para** _Entabalar una conversación real acerca de los sucesos de las series_
+ * **Quiero** _obtener más información acerca mis series favoritas_
+ * **Para** _entablar una conversación real sobre lo acontecido en las series_
 
 ## 3. Prototipo de baja fidelidad como solución
 Visualizamos la manera en la que debía verse y responder el chat individual y nos plantemaos el siguiente ejemplo:
