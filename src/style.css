@@ -106,7 +106,7 @@ label {
   #ChatGrupal{
     justify-content: center;
     align-items: center;
-    display: inline-flex;
+    display: none; /*esconder el botón para continuar desarrollo a futuro*/
     background-color:#FCFFE7;
     color: #EB455F;
     font-family: "Gugi", sans-serif;
@@ -346,8 +346,7 @@ h2[itemprop="title2 modal"] {
   margin-bottom: 20px;
 }
 
-/*Estilo chat individual*/
-
+/****estilo base chat individual utilizando Mobile First****/
 .view { 
   display: flex;
   flex-direction: column;
@@ -355,8 +354,8 @@ h2[itemprop="title2 modal"] {
 }
 
 .HomeContainer {
-  display: flex; 
-  gap: 10px; 
+  display: flex;
+  gap: 0;
   background-color: #1b485d; 
   padding: 10px;
   font-family: "Gugi", sans-serif;
@@ -366,7 +365,7 @@ h2[itemprop="title2 modal"] {
   letter-spacing: 1px; 
   border: 2px solid rgba(102, 195, 255, 0.5);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  max-width: 100% ;
+  max-width: 100%;
 }
 
 .HomeContainer button{
@@ -377,235 +376,218 @@ h2[itemprop="title2 modal"] {
   cursor: pointer; 
 }
 
-div.DescriptionChat {
+.DescriptionChat {
   display: flex;
-  max-width: 50%;
+  max-width: 100%;
   width: 100%;
   background-color: #ffffff;
-  min-height: 90vh;
+  max-height: 45vh;
   flex-direction: column;
   align-items: center;
   text-align: center;
-
 }
 
-img.imagenCard {
+.imagenCard {
   padding: 0 2%;
   max-width: 100%;
   height: auto; 
-  max-height: 700px;
+  max-height: 20vh; /*reduce altura en móviles*/
   margin-top: 2%;
 }
 
-#base {
-  background-color: #ffffff;
-  position: relative;
-  z-index: 1;
-}
-div.chat-window {
-  background-color: #66c3ff;
+.chat-window {
   display: flex;
   flex-direction: column;
-  max-width: 50%;
-  width: 100%;
-  min-height: 80vh;
-  max-height: 89%;
-  height: 90%;
-  overflow-y: auto;
-  padding: 0%;
-  z-index: 1;
-  margin-left: 50%;
-  position: absolute;
-  top: 20%;
+  max-height: 50vh;
+  min-height: 40vh;
+  margin-top: 1%; /*ajuste para evitar que tape el header*/
+  border: 1px solid #ddd; /*agregar un borde alrededor del chat*/
 }
 
-
-img.ImagenChat {
-  width: 8%;
-  height: 70%;
-  border-radius: 50%;
-  margin-top: 1%;
-  margin-left: 3%;
- 
-
-
-}
-
-section p[itemprop="description"] {
- width: 80%; 
- font-size: 1.2vw; 
- color: #000000; 
- line-height: 1.5; 
- padding: 0 10% 0 10%;
- text-align: justify;
- margin-top: 5%;
- margin-bottom: 2%;
- 
-}
-
-#input-user {
-  width: 90%; 
-  margin-left: 2%;
-  padding: 10px; 
-  border: 1px solid #ccc; 
-  border-radius: 5px; 
-  font-size: 16px; 
-  z-index: 2;
- 
-}
-
-#buttonSubmit {
-  background-color: #ffffff; 
-  color: rgb(131, 123, 123); 
-  padding:0% ; 
-  border: none; 
-  border-radius: 50px; 
-  cursor: pointer; 
-  width: 6%;
-  z-index: 2;
- 
-
-}
-
-.PersonajeChat{
-  margin-left:14%;
-  margin-top: -9%;
-  font-weight: bold;
+.HeaderChat {
+  display: flex;
+  align-items: center;
   justify-content: flex-start;
-  align-items: flex-start; 
-
-}
-.status{
-  margin-left: 14%;
-  font-size: 13px;
-
-}
-
-div.HeaderChat {
-  
   max-width: 100%;
-  max-height: 8%;
-  height: 100%;
-  display: flex;
   background-color: rgb(238, 233, 228);
-  flex-direction: column;
-  z-index: 2;
-  padding: 1px;
-  
+  flex-direction: row; /*mantiene los elementos en fila*/
+  padding: 10px;
 }
 
-.SendChat{
-  max-width: 100%;
-  width: 100%;
+.message-container {
+  flex-grow: 1; /* Permite que este contenedor ocupe el espacio disponible */
+  padding: 10px;
+  overflow-y: auto; /* Permite desplazamiento si hay muchos mensajes */
+  background-color: #fafafa; /* Fondo para el área de mensajes */
+}
+
+.ImagenChat {
+  width: 20%; /* ajuste para pantallas móviles */
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+  /* margin-top: 1%;
+  margin-left: 3%; */
+  object-fit: cover; /* ajusta la imagen para que se mantenga dentro del contenedor */
+}
+
+.chat-info {
   display: flex;
-  flex-direction: row;
-  z-index: 2;
-  background-color: #66c3ff;
-  position: sticky;
-  bottom: 0;
-
+  flex-direction: column; /*pone a .PersonajeChat y .status uno debajo del otro */
+  justify-content: center; /*slinea verticalmente ambos elementos en el centro */
 }
 
-div.chat-message.user-message {
+.PersonajeChat, .status {
+  margin: 0; /*elimina márgenes para que no afecten la disposición */
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.status{
+  margin-top: 1%;
+  text-align: left;
+  font-size: 12px;
+  color: #666; /*color más claro para diferenciar del nombre */
+}
+
+.message-container {
+  flex-grow: 1; /*permite que este contenedor ocupe el espacio disponible */
+  padding: 10px;
+  overflow-y: auto; /*permite desplazamiento si hay muchos mensajes */
+  background-color: #66c3ff; /*fondo para el área de mensajes */
+}
+
+.SendChat {
+  display: flex;
+  flex-direction: row; /* para que los elementos estén en línea */
+  align-items: center;
+  padding: 10px;
+  background-color: #66c3ff;/* #fff;*/
+  border-top: 1px solid #ddd; /* separador superior */
+}
+
+.SendChat input[type="text"] {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-size: 12px; 
+}
+
+.SendChat input[type="submit"] {
+  padding: 10px;
+  border: none;
+  background-color: #fafafa; /*#007bff;*/
+  color: rgb(131, 123, 123);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.SendChat input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.chat-message.user-message {
   background-color: #ffffff;
   align-self: flex-end;
   text-align: left;
   border-radius: 8px;
-  max-width: 47%;
-  margin-bottom: 3%;
-  margin-left: 2%; 
-  padding: 2%;
-  
+  max-width: 80%;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
-div.chat-message.ai-message {
+.chat-message.ai-message {
   background-color: #d8d8d8;
   align-self: flex-start;
   text-align: left;
   border-radius: 8px;
   max-width: 80%;
-  margin-bottom: 3%;
-  padding: 2%;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
+section p[itemprop="description"]  {
+ width: 100%; 
+ font-size: 0.8rem; 
+ color: #000000; 
+ line-height: 1.6; 
+ padding: 0 5%;
+ text-align: justify;
+ margin-top: 5%;
+ margin-bottom: 5%;
+}
 
+section p[itemprop="containsSeason"], p[itemprop="year"], p[itemprop="rating"] {
+ display: none;
+ margin-bottom: 3%;
+}
 
-@media screen and (min-width: 621px) and (max-width: 1000px) {
-  div.chat-window {
-    
-    max-height: 0%;
-  
+/* Media queries para tablets y desktop */
+@media (min-width: 768px) {
+  .HomeContainer {
+    flex-direction: row; /* Cambia a dos columnas */
+    width: 100%;
+/*     justify-content: space-between; */
+/*     position: absolute;
+    z-index: 5; */
+    justify-content: flex-start; /* Mantiene los elementos a la izquierda */
+    align-items: center; /* Alinea verticalmente los elementos */
   }
 
-  h2, h3 {
-    
-     position: relative;
-     z-index: 2; /* Coloca el texto sobre la superposición */
-     color: #000000;
-     }
-  
-    h2 {
-      font-size: 22px;
-     }
-    h3 {
-    font-size: 12px;
-     }
-    .SecondContainer {
-      flex-direction: column;
-    }
-  
-    .button-container {
-      
-      align-items: center;
-      margin-bottom: 10%;
-    }
-    select {
-      flex-direction: column;
-      align-items: center;
-      width: 80%;
-      margin : 5% 5% 2% 10%;
-    }
-   .API{
-     position: relative;
-     top: -120px;
-     left: 5px;
-   }  
-     
+  .HomeContainer p {
+    margin-left: 10px; /*mantiene un espacio entre el botón y el texto */
   }
-  
-  @media screen and (max-width: 620px) and (min-width: 331px)  {
-     .API{
-     position: relative;
-     top: -30px;
-     left: 5px;
-   }  
-    h2, h3 {
-    
-      position: relative;
-      z-index: 2; /* Coloca el texto sobre la superposición */
-      color: #000000;
-      }
-   
-     h2 {
-       font-size: 22px;
-      }
-     h3 {
-     font-size: 12px;
-      }
-     .SecondContainer {
-       flex-direction: column;
-     }
-   
-     .button-container {
-      /* flex-direction: column;*/
-       align-items: center;
-       margin-bottom: 1%;
-     }
-     select {
-       flex-direction: column;
-       align-items: center;
-       width: 80%;
-       margin : 5% 5% 0% 10%;
-     }
-    }
-   
+
+  .DescriptionChat {
+    width: 50%; /* Ocupa la mitad del ancho disponible */
+    min-height: 85vh;
+  }
+
+  .imagenCard {
+    max-height: 40vh; /*aumento altura en móviles*/
+    margin-top: 4%;
+  }
+
+  .chat-window {
+    margin-top: 10px; /* Espacio para evitar que tape HomeContainer */
+    width: 50%; /* Ocupa la otra mitad del ancho disponible */
+    margin-left: 50%; /* Desplaza el chat a la derecha */
+    position: absolute;
+    margin-top: 108px; /* Alinea la ventana de chat en la parte superior */
+    min-height: 85vh;
+  }
+
+  .HeaderChat {
+    padding: 15px;
+  }
+
+  .ImagenChat {
+    width: 10%; /* Ajuste para pantallas más grandes */
+    max-height: 70px;
+  }
+
+  .PersonajeChat {
+    font-size: 18px;
+  }
+
+  .status {
+    font-size: 14px;
+  }
+
+  .SendChat {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  section p[itemprop="containsSeason"], p[itemprop="year"], p[itemprop="rating"] {
+    display: flex;
+    width: 100%; 
+    font-size: 0.8rem; 
+    color: #000000; 
+    line-height: 1.6; 
+    padding: 0 5%;
+    text-align: justify;
+   }
+}
