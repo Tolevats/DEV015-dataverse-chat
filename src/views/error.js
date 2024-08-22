@@ -4,7 +4,7 @@ import { Footer } from "../components/footer.js";
 
 export const Fail = () => {
   const viewEl = document.createElement('body');
-  //asegurar que viewEl ocupe tola la altura de la ventana
+  //asegurar que viewEl ocupe toda la altura de la ventana
   viewEl.style.display = 'flex';
   viewEl.style.flexDirection = 'column';
   viewEl.style.minHeight = '100vh'; // Asegura que ocupe toda la altura de la ventana
