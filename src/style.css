@@ -258,10 +258,19 @@ select {
 
 .sizing {
   font-size: 10px;
+  padding-right: 0.5em;
+  text-align: left;
 }
 
 .star {
   margin-left: 20px; 
+}
+
+.other-facts { /*estilo para facts que no estaban alinéandose bien*/
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Alinea todos los elementos al final de la línea, es decir, a la derecha */
+  padding-left: 4%;
 }
 
 .overlay {
@@ -414,13 +423,6 @@ h2[itemprop="title2 modal"] {
   padding: 10px;
 }
 
-.message-container {
-  flex-grow: 1; /* Permite que este contenedor ocupe el espacio disponible */
-  padding: 10px;
-  overflow-y: auto; /* Permite desplazamiento si hay muchos mensajes */
-  background-color: #fafafa; /* Fondo para el área de mensajes */
-}
-
 .ImagenChat {
   width: 20%; /* ajuste para pantallas móviles */
   height: 50px;
@@ -496,6 +498,7 @@ h2[itemprop="title2 modal"] {
   max-width: 80%;
   margin-bottom: 10px;
   padding: 10px;
+  margin-left: auto;
 }
 
 .chat-message.ai-message {
@@ -506,6 +509,7 @@ h2[itemprop="title2 modal"] {
   max-width: 80%;
   margin-bottom: 10px;
   padding: 10px;
+  margin-right: auto;
 }
 
 section p[itemprop="description"]  {
@@ -529,9 +533,6 @@ section p[itemprop="containsSeason"], p[itemprop="year"], p[itemprop="rating"] {
   .HomeContainer {
     flex-direction: row; /* Cambia a dos columnas */
     width: 100%;
-/*     justify-content: space-between; */
-/*     position: absolute;
-    z-index: 5; */
     justify-content: flex-start; /* Mantiene los elementos a la izquierda */
     align-items: center; /* Alinea verticalmente los elementos */
   }
