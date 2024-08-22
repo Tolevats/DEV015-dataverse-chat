@@ -3,13 +3,18 @@ import { navigateTo } from "../router.js";
 import { Footer } from "../components/footer.js";
 
 export const Fail = () => {
-  const viewEl = document.createElement('div');
+  const viewEl = document.createElement('body');
+  //asegurar que viewEl ocupe tola la altura de la ventana
+  viewEl.style.display = 'flex';
+  viewEl.style.flexDirection = 'column';
+  viewEl.style.minHeight = '100vh'; // Asegura que ocupe toda la altura de la ventana
   // Crear y añadir Header
   const headerEl = Header();
   viewEl.appendChild(headerEl);
 
   // Crear y añadir contenido principal de la página de error
   const mainContent = document.createElement('div');
+  mainContent.style.flexGrow = '1'; //ocupa el espacio disponible entre el header y el footer
   mainContent.innerHTML = `
   <link rel="stylesheet" href="assets/CSS/styleFail.css">
   <picture class="sciFiError">
